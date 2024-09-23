@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
+import ProductList from "./components/products/ProductList";
 
 function App(){
   const [products, setProducts] = useState([]);
