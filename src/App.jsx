@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import ProductList from "./components/products/ProductList";
+import LoginModal from "./components/login/LoginModal";
+import TempPage from "./components/login/TempPage";
 
 function App(){
   const [products, setProducts] = useState([]);
@@ -12,7 +14,10 @@ function App(){
   return(
     <>
       <NavBar />
+      <TempPage/>
+      <LoginModal/>
       <ProductList products={products}/>
+
     </>
   );
 }
