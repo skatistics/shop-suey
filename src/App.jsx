@@ -15,9 +15,9 @@ function App(){
     <>
       <NavBar />
       <TempPage/>
-    <LoginModal/>
+      <LoginModal/>
       <ProductList products={products}/>
-    
+
     </>
   );
 }
