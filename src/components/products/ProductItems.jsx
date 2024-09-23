@@ -5,4 +5,4 @@ function ProductItems(){
 
 }
 
-export default ProductItems
+export default ProductItems 
