@@ -7,12 +7,10 @@ export function TempPage (){
     return (
         <div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <h1 className="text-3xl font-semibold mb-7 text-white">
-                Temporary Page </h1>
+            <h1 className="text-3xl font-semibold mb-7 text-white">Temporary Page   </h1>
                 <button onClick={()=>openModal('login-modal')} className="bg-blue-200 py-2 px-4 rounded text-xl text-white mr-4">
                     Login
                 </button>
-
             </div>
             <LoginModal id="login-modal">
             <h1 className="text-2xl font-semibold mb-7 text-white"> Login </h1>
