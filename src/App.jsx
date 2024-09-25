@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import ProductList from "./components/products/ProductList";
 import LoginModal from "./components/login/LoginModal";
-// import { products } from "./assets/temp-products";
+import LandingPage from "./pages/LandingPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, [products]);
-
   return (
-    <div className="bg-ct-light-tanly-DADED4 dark:bg-neutral-950">
-      <NavBar />
-      <LoginModal />
-      <ProductList products={products} />
-    </div>
+    <BrowserRouter>
+      <div className="bg-ct-light-tanly-DADED4 dark:bg-neutral-950">
+        <NavBar />
+        <LoginModal />
+
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
