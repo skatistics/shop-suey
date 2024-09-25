@@ -1,6 +1,7 @@
 import { IoCart, IoSearch } from 'react-icons/io5';
-import Logo from '../assets/logo/logo.png'
+import { openLoginModal } from "./login/LoginModal";
 import DarkModeToggle from './DarkModeToggle';
+import Logo from '../assets/logo/logo.png'
 
 function NavBar(){
     return(
@@ -24,7 +25,7 @@ function NavBar(){
                 {/* Cart, Login, DarkMode */}
                 <div className='flex justify-between items-center'>
                     <a href="#"><IoCart className='size-[30px]'/></a>
-                    <a href="#" className='p-4'>Login</a>
+                    <button onClick={()=>openLoginModal()} className='p-4'>Login</button>
                     <DarkModeToggle />
                 </div>
             </div>
