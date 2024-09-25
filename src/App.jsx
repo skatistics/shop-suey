@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import LoginModal from "./components/login/LoginModal";
+import DarkModeToggle from "./components/DarkModeToggle";
+import LoginSignupModal from "./components/login/LoginSignupModal";
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -8,10 +9,10 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-ct-light-tanly-DADED4 dark:bg-neutral-950">
+      <div className="min-h-dvh bg-ct-light-tanly-DADED4 dark:bg-neutral-950">
         <NavBar />
-        <LoginModal />
-
+        <LoginSignupModal />
+        <DarkModeToggle />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
