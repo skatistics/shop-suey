@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-dvh bg-ct-light-tanly-DADED4 dark:bg-neutral-950">
+      <div className="min-h-dvh bg-ct-light-tanly-DADED4 dark:bg-ct-light-browngrey-3C403D">
         <NavBar />
         <LoginSignupModal />
         <DarkModeToggle />
