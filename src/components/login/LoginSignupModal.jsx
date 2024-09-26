@@ -96,20 +96,20 @@ export default function LoginSignupModal({ children, id }) {
             <input type="checkbox" className="mr-1" />
             <p className="text-xs">
               By creating an account, you agree to our
-              <a href="#" className="text-blue-600 px-1 ">
+              <a href="#" className="text-blue-600 px-1 hover:underline">
                 Terms of Use
               </a>
               and
-              <a href="#" className="text-blue-600 px-1">
+              <a href="#" className="text-blue-600 px-1 hover:underline">
                 Privacy Policy.
               </a>
             </p>
           </div>
-          <button className="w-full text-white py-2 px-4 rounded text-[15px] bg-blue-600">
+          <button className="w-full text-white py-2 px-4 rounded text-[15px] bg-ct-dark-green-9DC88D hover:bg-ct-dark-green-4D774E">
             Register your account
           </button>
           <div className="mt-4">
-            <p className="text-center">Signup with</p>
+            <p className="text-center">Sign up with</p>
             <div className="flex items-center justify-center pt-2">
               <a href="#">
                 <FaFacebook className="size-[40px] text-[#1877F2] mr-6 hover:border-2 rounded-full" />
@@ -120,7 +120,7 @@ export default function LoginSignupModal({ children, id }) {
             </div>
           </div>
           <button
-            className="w-full text-white py-1 px-4 rounded text-[15px] bg-transparent hover:underline text-bold font-bold mt-4"
+            className="w-full text-ct-dark-green-9DC88D hover:text-ct-light-olive-A3BCB6 py-1 px-4 rounded text-[15px] bg-transparent hover:underline text-bold font-bold mt-4"
             onClick={() => changeModalState("login")}
           >
             Back to login
