@@ -9,7 +9,7 @@ function NavBar() {
         <div className="justify-center items-center ">
           <a href="#" className="flex items-center">
             <img src={Logo} alt="logo" className="size-[50px]" />
-            <span className="px-2 hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]">
+            <span className="hidden sm:inline px-2 hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]">
               Shopsuey
             </span>
           </a>

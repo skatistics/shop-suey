@@ -13,7 +13,7 @@ function LandingPage() {
   }, [products]);
 
   return (
-    <div>
+    <div className="space-y-6">
       <FeaturedBanner />
       <ProductList products={products} />
       <Footer />
