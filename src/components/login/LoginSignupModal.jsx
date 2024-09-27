@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import Modal from "./Modal";
-import { openModal, hideModal } from "./Modal";
+import { DisabledBGModal, openModal, hideModal } from "../CustomModal";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 export function openLoginSignupModal() {
   openModal("login-signup-modal");
 }
 
-export default function LoginSignupModal({ children, id }) {
+export default function LoginSignupModal() {
   const [modalState, setModalState] = useState("login");
 
   function changeModalState(input) {
@@ -21,7 +20,12 @@ export default function LoginSignupModal({ children, id }) {
   }
 
   return (
-    <Modal id="login-signup-modal">
+    <DisabledBGModal
+      id="login-signup-modal"
+      className={
+        "top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded p-5 bg-slate-400"
+      }
+    >
       <button
         onClick={() => closeLoginSignupModal()}
         className="absolute top-4 right-4 z-40 w-7 h-7 rounded text-2xl text-white bg-slate-600 flex justify-center items-center"
@@ -127,6 +131,6 @@ export default function LoginSignupModal({ children, id }) {
           </button>
         </div>
       )}
-    </Modal>
+    </DisabledBGModal>
   );
 }
