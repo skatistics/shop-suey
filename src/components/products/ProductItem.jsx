@@ -15,7 +15,7 @@ function ProductItem({ product }) {
   }
 
   return (
-    <div className="p-4 rounded-xl hover:shadow-lg hover:shadow-ct-dark-green-164A41 dark:hover:shadow-ct-dark-green-9DC88D bg-gradient-to-br from-ct-white-FEFCFF  to-ct-dark-green-9DC88D dark:from-ct-black-19191A dark:to-ct-dark-green-164A41">
+    <div className="p-4 rounded-xl hover:shadow-lg hover:shadow-ct-dark-green-9DC88D dark:hover:shadow-ct-dark-green-164A41 bg-gradient-to-br from-ct-white-FEFCFF  to-ct-dark-green-9DC88D dark:from-ct-black-19191A dark:to-ct-dark-green-164A41 group">
       <div className="flex justify-center">
         <img
           src={product.image}
@@ -35,14 +35,14 @@ function ProductItem({ product }) {
         {formatter.format(product.price * 50)}
       </div>
 
-      <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center">
+      <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
         <button
-          className="h-10 w-8/12 py-2 px-6 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md"
+          className="h-10 w-8/12 py-2 px-6 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md opacity-0 group-hover:opacity-100 transition-all"
           onClick={() => onClickProduct()}
         >
           Buy Now
         </button>
-        <button className="h-10 px-2 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md">
+        <button className="h-10 px-2 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md opacity-0 group-hover:opacity-100 transition-all">
           <IoCart className="size-8" />
         </button>
       </div>
