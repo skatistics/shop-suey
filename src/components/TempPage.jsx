@@ -1,4 +1,4 @@
-import CartList from "./CartList";
+import CartList from "./modals/CartList";
 
 import React from "react";
 

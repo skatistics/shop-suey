@@ -7,7 +7,6 @@ function FeaturedBanner() {
     {
       url: "https://images.acer.com/is/image/acer/Soar%20in%20Solitude_1920x1080?$responsive$&bfc=off",
     },
-
     {
       url: "https://images.acer.com/is/image/acer/2023_Predator_Alternative_Wallpaper_Final%20Destination_1920x1080?$responsive$&bfc=off",
     },
@@ -46,7 +45,7 @@ function FeaturedBanner() {
   return (
     <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group ">
       {/**background text */}
-      <div className="absolute top-1/3 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-5xl font-bold z-20  p-3">
+      <div className="absolute top-1/3 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-5xl font-bold z-10  p-3">
         HACKDOG SALE
       </div>
       <div

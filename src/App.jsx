@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import DarkModeToggle from "./components/DarkModeToggle";
-import LoginSignupModal from "./components/login/LoginSignupModal";
+import LoginSignupModal from "./components/modals/LoginSignupModal";
 import LandingPage from "./pages/LandingPage";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import ProductPage from "./pages/ProductPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import TempPage from "./components/TempPage";
 
 function App() {
@@ -16,9 +18,11 @@ function App() {
         <DarkModeToggle />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/temp" element={<TempPage />} />
+          <Route path="/products/:productId/" element={<ProductPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </BrowserRouter>

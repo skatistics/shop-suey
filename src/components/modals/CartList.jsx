@@ -1,4 +1,4 @@
-import CartListItem from "./CartListItem";
+import CartListItem from "../CartListItem";
 
 function CartList() {
   return (
