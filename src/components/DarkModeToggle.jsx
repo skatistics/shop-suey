@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import DarkButton from "../assets/darkmodetoggle/dark-mode-button.png";
-import LightButton from "../assets/darkmodetoggle/light-mode-button.png";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 function DarkModeToggle() {
   const [theme, setTheme] = useState(
@@ -20,21 +19,20 @@ function DarkModeToggle() {
   }, [theme]);
 
   return (
-    <div className="fixed right-4 bottom-10">
-      <img
-        src={LightButton}
-        alt="lightmode"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className={`w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 absolute right-0 z-10 ${
-          theme === "dark" ? "opacity-0" : "opacity-100"
-        }`}
-      />
-      <img
-        src={DarkButton}
-        alt="darkmode"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300"
-      />
+    <div className="fixed right-4 bottom-20">
+      {theme === "dark" && (
+        <FiSun
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className={`text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 right-0 z-10 `}
+        />
+      )}
+
+      {theme === "light" && (
+        <FiMoon
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          className="text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300"
+        />
+      )}
     </div>
   );
 }

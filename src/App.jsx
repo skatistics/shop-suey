@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import TempPage from "./components/TempPage";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <NavBar />
         <LoginSignupModal />
         <DarkModeToggle />
+        <BackToTopButton />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />

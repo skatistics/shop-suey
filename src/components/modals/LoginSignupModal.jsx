@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { Modal, openModal, hideModal } from "./CustomModal";
+import { Modal, openModal, hideModal, DisabledBGModal } from "./CustomModal";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 export function openLoginSignupModal() {
@@ -20,7 +20,7 @@ export default function LoginSignupModal() {
   }
 
   return (
-    <Modal
+    <DisabledBGModal
       id="login-signup-modal"
       className={
         "top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded p-5 bg-slate-400"
@@ -131,6 +131,6 @@ export default function LoginSignupModal() {
           </button>
         </div>
       )}
-    </Modal>
+    </DisabledBGModal>
   );
 }
