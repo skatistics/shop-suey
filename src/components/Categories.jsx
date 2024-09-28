@@ -8,7 +8,7 @@ export default function Categories({ categories }) {
         {categories.map((category, index) => {
           return (
             <div key={index}>
-              <a href={`#${category}`}>{category}</a>
+              <a href={`#category-${category}`}>{category}</a>
             </div>
           );
         })}

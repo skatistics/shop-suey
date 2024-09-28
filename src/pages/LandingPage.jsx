@@ -10,7 +10,7 @@ function LandingPage() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products")
+    fetch("https://fakestoreapi.in/api/products?limit=150")
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
   }, []);
@@ -23,8 +23,10 @@ function LandingPage() {
 
   return (
     <div className="space-y-6">
-      <div className="md:container xl:flex mx-auto">
-        <Categories categories={categories} />
+      <div className="flex flex-col-reverse xl:flex-row mx-auto">
+        <div className="bg-yellow-300 w-56">
+          <Categories categories={categories} />
+        </div>
         <FeaturedBanner />
         <div id="utility-section" className="bg-blue-400 w-56">
           <div className="text-3xl">Brainded</div>
@@ -37,10 +39,30 @@ function LandingPage() {
 
       <CategoryModal categories={categories} />
       <ProductList products={products} />
-      <span id="tv">CATEGORY TV</span>
+      <div className="text-center" id="category-tv">
+        TV PRODUCTS
+      </div>
       <ProductList products={products} category="tv" />
-      <span id="audio">CATEGORY AUDIO</span>
+      <div className="text-center" id="category-audio">
+        AUDIO PRODUCTS
+      </div>
       <ProductList products={products} category="audio" />
+      <div className="text-center" id="category-laptop">
+        LAPTOPS
+      </div>
+      <ProductList products={products} category="laptop" />
+      <div className="text-center" id="category-mobile">
+        MOBILE PHONES
+      </div>
+      <ProductList products={products} category="mobile" />
+      <div className="text-center" id="category-gaming">
+        GAMING
+      </div>
+      <ProductList products={products} category="gaming" />
+      <div className="text-center" id="category-appliances">
+        APPLIANCES
+      </div>
+      <ProductList products={products} category="appliances" />
       <Footer />
     </div>
   );
