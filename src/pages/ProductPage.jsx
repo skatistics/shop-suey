@@ -13,7 +13,7 @@ function ProductPage() {
   });
 
   useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products")
+    fetch("https://fakestoreapi.in/api/products?limit=150")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products);

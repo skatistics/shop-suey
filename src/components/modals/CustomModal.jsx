@@ -4,7 +4,7 @@ export function openModal(id) {
   if (disabledBG) {
     document.body.style.overflow = "hidden";
   }
-  modal.style.display = "block";
+  modal.classList.remove("hidden");
 }
 
 export function hideModal(id) {
@@ -13,17 +13,14 @@ export function hideModal(id) {
   if (disabledBG) {
     document.body.style.overflow = "unset";
   }
-  modal.style.display = "none";
+  modal.classList.add("hidden");
 }
 
 export function Modal({ children, id, className }) {
   return (
     <div
       id={id}
-      className={
-        "hidden fixed max-w-full max-h-full w-auto h-auto z-20" +
-        (className ? " " + className : "")
-      }
+      className={"hidden fixed z-20" + (className ? " " + className : "")}
     >
       {children}
     </div>

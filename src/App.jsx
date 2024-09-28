@@ -9,24 +9,40 @@ import ProductPage from "./pages/ProductPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import TempPage from "./components/TempPage";
 import BackToTopButton from "./components/BackToTopButton";
+import CartList from "./components/modals/CartList";
+import { useState } from "react";
+import { createContext } from "react";
+
+export const ShopContext = createContext([]);
 
 function App() {
+  const [cartlist, setCartlist] = useState([]);
+
+  function addToCart(product) {
+    const tempcart = [...cartlist];
+    tempcart.push(product);
+    setCartlist(tempcart);
+  }
+
   return (
     <BrowserRouter>
-      <div className="min-h-dvh bg-ct-white-FEFCFF dark:bg-ct-black-19191A text-ct-black-19191A dark:text-ct-white-FEFCFF">
-        <NavBar />
-        <LoginSignupModal />
-        <DarkModeToggle />
-        <BackToTopButton />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/temp" element={<TempPage />} />
-          <Route path="/products/:productId/" element={<ProductPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </div>
+      <ShopContext.Provider value={{ cartlist, addToCart }}>
+        <div className="min-h-dvh bg-ct-white-FEFCFF dark:bg-ct-black-19191A text-ct-black-19191A dark:text-ct-white-FEFCFF">
+          <NavBar />
+          <CartList />
+          <LoginSignupModal />
+          <DarkModeToggle />
+          <BackToTopButton />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/checkout" element={<TempPage />} />
+            <Route path="/products/:productId/" element={<ProductPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+      </ShopContext.Provider>
     </BrowserRouter>
   );
 }

@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import websiteLogo from "../../assets/logo/logo.png";
 import { IoCart } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { ShopContext } from "../../App";
 
 function ProductItem({ product }) {
   const navigate = useNavigate();
+  const addToCart = useContext(ShopContext).addToCart;
 
   const formatter = new Intl.NumberFormat("tl-PH", {
     style: "currency",
@@ -42,7 +45,10 @@ function ProductItem({ product }) {
         >
           Buy Now
         </button>
-        <button className="h-10 px-2 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md opacity-0 group-hover:opacity-100 transition-all">
+        <button
+          className="h-10 px-2 bg-ct-dark-green-9DC88D dark:bg-ct-dark-green-164A41 rounded-md opacity-0 group-hover:opacity-100 transition-all"
+          onClick={() => addToCart(product)}
+        >
           <IoCart className="size-8" />
         </button>
       </div>
