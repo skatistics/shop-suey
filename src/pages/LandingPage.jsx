@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ProductList from "../components/products/ProductList";
 import Footer from "../components/Footer";
 import FeaturedBanner from "../components/products/FeaturedBanner";
+import Vouchers from "../components/Vouchers";
 import Categories from "../components/Categories";
 import CategoryModal from "../components/modals/CategoryModal";
 
@@ -24,17 +25,9 @@ function LandingPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col-reverse xl:flex-row mx-auto">
-        <div className="bg-yellow-300 w-56">
-          <Categories categories={categories} />
-        </div>
+        <Categories categories={categories} />
         <FeaturedBanner />
-        <div id="utility-section" className="bg-blue-400 w-56">
-          <div className="text-3xl">Brainded</div>
-          <div className="text-3xl">Brainded</div>
-          <div className="text-3xl">Brainded</div>
-          <div className="text-3xl">Brainded</div>
-          <div className="text-3xl">Brainded</div>
-        </div>
+        <Vouchers />
       </div>
 
       <CategoryModal categories={categories} />
