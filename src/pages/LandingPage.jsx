@@ -29,7 +29,6 @@ function LandingPage() {
         <FeaturedBanner />
         <Vouchers />
       </div>
-
       <CategoryModal categories={categories} />
       <ProductList products={products} />
       <div className="text-center" id="category-tv">

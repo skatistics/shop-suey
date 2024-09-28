@@ -3,6 +3,7 @@ import { IoCart, IoSearch } from "react-icons/io5";
 import { openLoginSignupModal } from "./modals/LoginSignupModal";
 import Logo from "../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
+import { toggleCartList } from "./modals/CartList";
 
 function NavBar() {
   return (
@@ -21,9 +22,9 @@ function NavBar() {
 
         {/* Cart, Login, DarkMode */}
         <div className="flex justify-between items-center">
-          <a href="temp">
+          <button onClick={() => toggleCartList()}>
             <IoCart className="size-[30px] hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]" />
-          </a>
+          </button>
           <button onClick={() => openLoginSignupModal()} className="p-4">
             <div className="hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]">
               <div>Login/</div>

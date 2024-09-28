@@ -23,14 +23,14 @@ function DarkModeToggle() {
       {theme === "dark" && (
         <FiSun
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className={`text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 right-0 z-10 `}
+          className={`text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 right-0 z-30`}
         />
       )}
 
       {theme === "light" && (
         <FiMoon
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300"
+          className="text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 z-30"
         />
       )}
     </div>
