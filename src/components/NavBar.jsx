@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { IoCart, IoSearch } from "react-icons/io5";
-import { openLoginSignupModal } from "./login/LoginSignupModal";
+import { openLoginSignupModal } from "./modals/LoginSignupModal";
 import Logo from "../assets/logo/logo.png";
 
 function NavBar() {

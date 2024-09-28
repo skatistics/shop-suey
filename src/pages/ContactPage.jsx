@@ -1,4 +1,4 @@
-function Contact() {
+function ContactPage() {
   const contactInfo = [
     {
       id: 1,
@@ -44,4 +44,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

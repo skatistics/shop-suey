@@ -1,4 +1,4 @@
-function About() {
+function AboutPage() {
   const developers = [
     {
       id: 1,
@@ -60,4 +60,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutPage;
