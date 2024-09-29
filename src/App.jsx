@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
       <DarkModeContextProvider>
         <ShopContext.Provider value={{ cartlist, addToCart }}>
-          <div className="min-h-dvh bg-ct-base-67A770">
+          <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
             <NavBar />
             <CartList />
             <LoginSignupModal />

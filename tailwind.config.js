@@ -25,6 +25,7 @@ export default {
         "ct-1F331F": "#1F331F",
         "ct-191819": "#191819",
         "ct-080D08": "#080D08",
+        "ct-0B0D0C": "#0B0D0C",
       },
       fontFamily: {
         "ct-Teko": ["Teko", "sans-serif"],

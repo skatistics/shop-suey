@@ -7,9 +7,9 @@ function SearchBar() {
         <input
           type="text"
           placeholder="Search"
-          className="md:w-[400px] rounded-full px-3 bg-ct-white-FEFCFF dark:bg-ct-black-19191A"
+          className="md:w-[400px] rounded-full border-2 border-ct-080D08 px-3 text-ct-080D08"
         />
-        <IoSearch className="absolute top-1/2 -translate-y-1/2 right-3 text-ct-dark-green-4D774E" />
+        <IoSearch className="absolute top-1/2 -translate-y-1/2 right-3" />
       </div>
     </div>
   );

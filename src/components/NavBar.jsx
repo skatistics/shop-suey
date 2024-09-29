@@ -9,7 +9,7 @@ import DarkModeToggle from "./DarkModeToggle";
 function NavBar() {
   return (
     <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
-      <div className="flex justify-between items-center text-[#101814] font-medium bg-ct-F2F7F2 py-2">
+      <div className="flex justify-between items-center text-ct-080D08 font-medium bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-[#222824]">
         <div className="justify-center items-center ">
           <Link to="/" className="flex items-center">
             <img src={Logo} alt="logo" className="size-[50px] ml-2" />
@@ -24,7 +24,7 @@ function NavBar() {
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center">
           <button onClick={() => toggleCartList()} className="mx-4">
-            <IoCart className="size-[30px]" />
+            <IoCart className="size-[30px] dark:text-[#00ff3770]" />
           </button>
           <button onClick={() => openLoginSignupModal()} className="mx-4">
             <div className="">

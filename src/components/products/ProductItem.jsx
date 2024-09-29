@@ -18,7 +18,7 @@ function ProductItem({ product }) {
   }
 
   return (
-    <div className="p-4 rounded-xl hover:shadow-lg bg-ct-F2F7F2 group">
+    <div className="p-4 rounded-xl hover:shadow-lg text-ct-080D08 bg-ct-F2F7F2 dark:bg-[#222824] dark:text-ct-F2F7F2 group">
       <div className="flex justify-center">
         <img
           src={product.image}
@@ -40,7 +40,7 @@ function ProductItem({ product }) {
 
       <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
         <button
-          className="h-10 w-8/12 py-2 px-6  rounded-md opacity-0 group-hover:opacity-100 transition-all"
+          className="h-10 w-8/12 py-2 px-6  rounded-md opacity-0 group-hover:opacity-100 transition-all bg-[#6ad678] dark:bg-[#00ff3770]"
           onClick={() => onClickProduct()}
         >
           Buy Now
@@ -49,7 +49,7 @@ function ProductItem({ product }) {
           className="h-10 px-2 rounded-md opacity-0 group-hover:opacity-100 transition-all"
           onClick={() => addToCart(product)}
         >
-          <IoCart className="size-8" />
+          <IoCart className="size-8 dark:text-[#00ff3770]" />
         </button>
       </div>
     </div>
