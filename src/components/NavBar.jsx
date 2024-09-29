@@ -9,11 +9,13 @@ import DarkModeToggle from "./DarkModeToggle";
 function NavBar() {
   return (
     <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
-      <div className="flex justify-between items-center text-[#101814] font-medium bg-ct-F2F7F2">
+      <div className="flex justify-between items-center text-[#101814] font-medium bg-ct-F2F7F2 py-2">
         <div className="justify-center items-center ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="logo" className="size-[70px] ml-2" />
-            <span className="hidden sm:inline px-2">Shopsuey</span>
+            <img src={Logo} alt="logo" className="size-[50px] ml-2" />
+            <span className="hidden sm:inline px-2 font-ct-Teko text-2xl">
+              Shopsuey
+            </span>
           </Link>
         </div>
         {/* //SearchBar */}
