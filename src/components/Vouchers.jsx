@@ -4,12 +4,10 @@ export default function Vouchers({ className }) {
   return (
     <div
       id="vouchers"
-      className={
-        " hidden bg-blue-400 w-56" + (className ? " " + className : "")
-      }
+      className={"text-base xl:text-xl" + (className ? " " + className : "")}
     >
-      <div className="text-3xl">Brainded</div>
-      <div className="text-3xl">Brainded</div>
+      <div className="px-2">Vouchers</div>
+      <div className="px-2">Payment Options</div>
     </div>
   );
 }

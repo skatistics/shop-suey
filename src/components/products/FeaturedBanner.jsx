@@ -43,7 +43,7 @@ function FeaturedBanner() {
   }, [currentIndex]);
 
   return (
-    <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group ">
+    <div className="max-w-[1400px] h-[780px] w-full pt-14 pb-16 px-5 xl:px-2 relative group">
       {/**background text */}
       <div className="absolute top-1/3 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-5xl font-bold z-10  p-3">
         HACKDOG SALE
