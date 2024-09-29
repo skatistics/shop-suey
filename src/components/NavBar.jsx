@@ -21,10 +21,10 @@ function NavBar() {
 
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center">
-          <button onClick={() => toggleCartList()}>
+          <button onClick={() => toggleCartList()} className="mx-4">
             <IoCart className="size-[30px]" />
           </button>
-          <button onClick={() => openLoginSignupModal()} className="p-4">
+          <button onClick={() => openLoginSignupModal()} className="mx-4">
             <div className="">
               <div>Login/</div>
               <div>Signup</div>
