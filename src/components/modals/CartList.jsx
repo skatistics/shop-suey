@@ -20,7 +20,7 @@ function CartList() {
   return (
     <Modal
       id="cartlist-modal"
-      className="h-[600px] w-72 right-7 overflow-hidden hover:overflow-y-scroll transition-all hover:scrollbar-thin hover:scrollbar-webkit top-[110px] hover:w-[303px] hover:right-[13px] bg-slate-400 dark:bg-gray-600 rounded-xl"
+      className="h-full w-72 right-0 overflow-hidden hover:overflow-y-scroll transition-all hover:scrollbar-thin hover:scrollbar-webkit top-[80px] hover:w-[303px] bg-slate-400 dark:bg-gray-600 rounded-xl"
     >
       {cartlist.map((item) => {
         return <CartListItem key={item.id} item={item} />;
