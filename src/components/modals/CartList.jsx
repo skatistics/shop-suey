@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import CartListItem from "../CartListItem";
 import { Modal, openModal, hideModal } from "./CustomModal";
-import { ShopContext } from "../../App";
+import { CartContext } from "../contexts/CartContextProvider";
 
 export function toggleCartList() {
-  const cartlistModal = document.getElementById("cartlist-modal");
+  const cartListModal = document.getElementById("cartlist-modal");
 
-  const hidden = cartlistModal.classList.contains("hidden");
+  const hidden = cartListModal.classList.contains("hidden");
   if (hidden) {
     openModal("cartlist-modal");
   } else {
@@ -15,15 +15,15 @@ export function toggleCartList() {
 }
 
 function CartList() {
-  const cartlist = useContext(ShopContext).cartlist;
+  const cartList = useContext(CartContext).cartList;
 
   return (
     <Modal
       id="cartlist-modal"
       className="h-full w-72 right-0 overflow-hidden hover:overflow-y-scroll transition-all hover:scrollbar-thin hover:scrollbar-webkit top-[80px] hover:w-[303px] bg-slate-400 dark:bg-gray-600 rounded-xl"
     >
-      {!cartlist.length > 0 && <div>Cart List is Empty!</div>}
-      {cartlist.map((item) => {
+      {!cartList.length > 0 && <div>Cart List is Empty!</div>}
+      {cartList.map((item) => {
         return <CartListItem key={item.id} item={item} />;
       })}
     </Modal>
