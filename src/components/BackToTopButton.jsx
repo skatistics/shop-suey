@@ -26,7 +26,7 @@ function BackToTopButton() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-4 right-4 z-50 p-3 rounded-full bg-ct-dark-green-9DC88D text-ct-light-browngrey-3C403D dark:bg-ct-dark-green-164A41 dark:text-ct-light-tanly-DADED4"
+          className="fixed bottom-4 right-4 z-50 p-3 rounded-full text-ct-1F331F bg-ct-F2F7F2"
         >
           <IoIosArrowUp className="text-2xl" />
         </button>

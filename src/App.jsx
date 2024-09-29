@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <ShopContext.Provider value={{ cartlist, addToCart }}>
-        <div className="min-h-dvh bg-ct-white-FEFCFF dark:bg-ct-black-19191A text-ct-black-19191A dark:text-ct-white-FEFCFF">
+        <div className="min-h-dvh bg-ct-base-67A770">
           <NavBar />
           <CartList />
           <LoginSignupModal />

@@ -4,33 +4,34 @@ import { openLoginSignupModal } from "./modals/LoginSignupModal";
 import Logo from "../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
 import { toggleCartList } from "./modals/CartList";
+import DarkModeToggle from "./DarkModeToggle";
 
 function NavBar() {
   return (
-    <div>
-      <div className="flex justify-between items-center bg-ct-dark-green-4D774E text-ct-light-browngrey-3C403D font-bold dark:bg-ct-dark-green-164A41 dark:text-ct-light-tanly-DADED4 ">
+    <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
+      <div className="flex justify-between items-center text-[#101814] font-medium bg-ct-F2F7F2">
         <div className="justify-center items-center ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="logo" className="size-[50px] ml-2" />
-            <span className="hidden sm:inline px-2 hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]">
-              Shopsuey
-            </span>
+            <img src={Logo} alt="logo" className="size-[70px] ml-2" />
+            <span className="hidden sm:inline px-2">Shopsuey</span>
           </Link>
         </div>
         {/* //SearchBar */}
         <SearchBar />
 
-        {/* Cart, Login, DarkMode */}
+        {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center">
           <button onClick={() => toggleCartList()}>
-            <IoCart className="size-[30px] hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]" />
+            <IoCart className="size-[30px]" />
           </button>
           <button onClick={() => openLoginSignupModal()} className="p-4">
-            <div className="hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]">
+            <div className="">
               <div>Login/</div>
               <div>Signup</div>
             </div>
           </button>
+          {/* DarkMode */}
+          <DarkModeToggle />
         </div>
       </div>
     </div>
