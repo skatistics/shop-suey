@@ -12,7 +12,12 @@ import BackToTopButton from "./components/BackToTopButton";
 import CartList from "./components/modals/CartList";
 import { useState } from "react";
 import { createContext } from "react";
+
+import DarkModeContextProvider from "./contexts/DarkModeContextProvider";
+import FloatingDarkModeToggle from "./components/FloatingDarkModeToggle";
+
 import FloatingCartList from "./components/FloatingCartList";
+
 
 export const ShopContext = createContext([]);
 
@@ -33,24 +38,27 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ShopContext.Provider value={{ cartlist, addToCart, removeItem }}>
-        <div className="min-h-dvh bg-ct-white-FEFCFF dark:bg-ct-black-19191A text-ct-black-19191A dark:text-ct-white-FEFCFF">
-          <NavBar />
-          <CartList />
-          <LoginSignupModal />
-          <DarkModeToggle />
-          <BackToTopButton />
-          <FloatingCartList />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/checkout" element={<TempPage />} />
-            <Route path="/products/:productId/" element={<ProductPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-      </ShopContext.Provider>
+
+      <DarkModeContextProvider>
+        <ShopContext.Provider value={{ cartlist, addToCart }}>
+          <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
+            <NavBar />
+            <CartList />
+            <LoginSignupModal />
+            <FloatingDarkModeToggle />
+            <BackToTopButton />
+            <FloatingCartList />
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/checkout" element={<TempPage />} />
+              <Route path="/products/:productId/" element={<ProductPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </div>
+        </ShopContext.Provider>
+      </DarkModeContextProvider>
     </BrowserRouter>
   );
 }

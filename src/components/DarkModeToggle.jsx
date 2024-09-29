@@ -1,37 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { DarkModeContext } from "../contexts/DarkModeContextProvider";
 
 function DarkModeToggle() {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
-
-  const element = document.documentElement; //html element
-
-  useEffect(() => {
-    if (theme === "dark") {
-      element.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      element.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
+  const theme = useContext(DarkModeContext).theme;
+  const setTheme = useContext(DarkModeContext).themeToggle;
 
   return (
-    <div className="fixed right-4 bottom-20">
+    <div>
       {theme === "dark" && (
-        <FiSun
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className={`text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 right-0 z-30`}
-        />
+        <button onClick={setTheme} className=" p-3 " type="button">
+          <FiSun className="text-2xl text-[#00ff3770] " />
+        </button>
       )}
 
       {theme === "light" && (
-        <FiMoon
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="text-4xl w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.)] transition-all duration-300 z-30"
-        />
+        <button
+          onClick={setTheme}
+          className=" p-3 text-ct-1F331F   transition-all duration-300"
+          type="button"
+        >
+          <FiMoon className="text-2xl" />
+        </button>
       )}
     </div>
   );

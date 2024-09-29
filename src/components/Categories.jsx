@@ -5,7 +5,7 @@ export default function Categories({ categories, className }) {
     <div
       id="categories"
       className={
-        "bg-yellow-300 w-56 px-5 rounded-md" +
+        "bg-yellow-300 w-56 px-5 rounded-md hidden" +
         (className ? " " + className : "")
       }
     >
