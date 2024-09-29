@@ -12,8 +12,12 @@ import BackToTopButton from "./components/BackToTopButton";
 import CartList from "./components/modals/CartList";
 import { useState } from "react";
 import { createContext } from "react";
+
 import DarkModeContextProvider from "./contexts/DarkModeContextProvider";
 import FloatingDarkModeToggle from "./components/FloatingDarkModeToggle";
+
+import FloatingCartList from "./components/FloatingCartList";
+
 
 export const ShopContext = createContext([]);
 
@@ -26,8 +30,15 @@ function App() {
     setCartlist(tempcart);
   }
 
+  function removeItem(id) {
+    const removeCart = [...cartlist];
+    const removeHandler = removeCart.filter((product) => product.id !== id);
+    setCartlist(removeHandler);
+  }
+
   return (
     <BrowserRouter>
+
       <DarkModeContextProvider>
         <ShopContext.Provider value={{ cartlist, addToCart }}>
           <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
@@ -36,6 +47,7 @@ function App() {
             <LoginSignupModal />
             <FloatingDarkModeToggle />
             <BackToTopButton />
+            <FloatingCartList />
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/about" element={<AboutPage />} />
