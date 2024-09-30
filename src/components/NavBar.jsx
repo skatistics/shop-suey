@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 import { toggleCartList } from "./modals/CartListModal";
 import DarkModeToggle from "./DarkModeToggle";
 
-function NavBar() {
+function NavBar({ setSearch }) {
   return (
     <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
       <div className="flex justify-between items-center text-ct-080D08 font-medium bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-[#222824]">
@@ -19,7 +19,7 @@ function NavBar() {
           </Link>
         </div>
         {/* //SearchBar */}
-        <SearchBar />
+        <SearchBar setSearch={setSearch} />
 
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center">
