@@ -26,7 +26,7 @@ function CartListItem({ item }) {
         </div>
       </div>
 
-      <div className="flex justify-end items-center pb-6 pr-2 cursor-pointer space-x-2 ">
+      <div className="flex justify-end items-center pb-6 pr-2 space-x-2 ">
         <button
           onClick={() => removeFromCart(item.id)}
           className="absolute ml-5 text-sm opacity-0 scale-y-0 left-0 bg-ct-dark-green-9DC88D text-white font-bold px-2 rounded-full transition-transform duration-[400ms] group-hover/remove:opacity-100 group-hover/remove:scale-y-100"

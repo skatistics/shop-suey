@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import NotFoundPage from "./NotFoundPage";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../components/contexts/CartContextProvider";
 
 function ProductPage() {
+  const addToCart = useContext(CartContext).addToCart;
   const [isFetching, setIsFetching] = useState(true);
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState({});
@@ -49,14 +51,22 @@ function ProductPage() {
             <div className="text-3xl font-bold">
               {formatter.format(product.price * 50)}
             </div>
+
             <div className="mx-5 text-xl font-bold border-4 p-2">
               Category: {product.category}
             </div>
           </div>
 
           <div className="bg-blue-200 h-1/3">
-            <button className="text-2xl">Buy Now</button>
-            <button className="text-2xl">Add To Cart</button>
+            <button className="text-2xl border-2 border-black rounded-md">
+              Check Out
+            </button>
+            <button
+              className="text-2xl h-10 px-2 rounded-md border-2 border-black"
+              onClick={() => addToCart(product)}
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

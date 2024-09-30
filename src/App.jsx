@@ -12,6 +12,7 @@ import BackToTopButton from "./components/floating/BackToTopButton";
 import CartContextProvider from "./components/contexts/CartContextProvider";
 import DarkModeContextProvider from "./components/contexts/DarkModeContextProvider";
 import NavBar from "./components/NavBar";
+import CheckOutPage from "./pages/CheckOutPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/products/:productId/" element={<ProductPage />} />
+              <Route path="/checkout" element={<CheckOutPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
