@@ -9,9 +9,26 @@ export function toggleCartList() {
   const hidden = cartListModal.classList.contains("hidden");
   if (hidden) {
     openModal("cartlist-modal");
+    setTimeout(() => {
+      animateOpen();
+    }, 1);
   } else {
-    hideModal("cartlist-modal");
+    animateClose();
+    setTimeout(() => {
+      hideModal("cartlist-modal");
+    }, 500);
   }
+}
+
+function animateClose() {
+  const cartListModal = document.getElementById("cartlist-modal");
+  cartListModal.classList.remove("scale-x-100");
+  cartListModal.classList.add("scale-x-0");
+}
+function animateOpen() {
+  const cartListModal = document.getElementById("cartlist-modal");
+  cartListModal.classList.remove("scale-x-0");
+  cartListModal.classList.add("scale-x-100");
 }
 
 function CartListModal() {
@@ -20,7 +37,9 @@ function CartListModal() {
   return (
     <Modal
       id="cartlist-modal"
-      className="h-full w-72 right-0 overflow-hidden hover:overflow-y-scroll transition-all hover:scrollbar-thin hover:scrollbar-webkit top-[80px] hover:w-[303px] bg-slate-400 dark:bg-gray-600 rounded-xl"
+      className={
+        "h-full w-72 origin-right scale-x-0 right-0 overflow-hidden transition-all duration-500 top-[80px] bg-slate-400 dark:bg-gray-600 rounded-s-xl hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit"
+      }
     >
       {!cartList.length > 0 && <div>Cart List is Empty!</div>}
       {cartList.map((item) => {

@@ -33,7 +33,7 @@ function CartListItem({ item }) {
         >
           Remove
         </button>
-        <button disabled={item.count < 2}>
+        <button className={item.count < 2 ? "hidden" : ""}>
           <AiOutlineMinus
             onClick={() => {
               decreaseItemCount(item.id);
