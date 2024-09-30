@@ -14,7 +14,7 @@ export function toggleCartList() {
   }
 }
 
-function CartList() {
+function CartListModal() {
   const cartList = useContext(CartContext).cartList;
 
   return (
@@ -30,4 +30,4 @@ function CartList() {
   );
 }
 
-export default CartList;
+export default CartListModal;

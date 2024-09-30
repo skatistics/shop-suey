@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { toggleCartList } from "./modals/CartList";
+import { toggleCartList } from "../modals/CartListModal";
 import { IoCart } from "react-icons/io5";
 
 function FloatingCartList() {
