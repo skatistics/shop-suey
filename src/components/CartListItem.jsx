@@ -33,19 +33,22 @@ function CartListItem({ item }) {
         >
           Remove
         </button>
-        <button className={item.count < 2 ? "hidden" : ""}>
-          <AiOutlineMinus
-            onClick={() => {
-              decreaseItemCount(item.id);
-            }}
-          />
+        <button
+          onClick={() => {
+            decreaseItemCount(item.id);
+          }}
+          className={item.count < 2 ? "hidden" : ""}
+        >
+          <AiOutlineMinus />
         </button>
         <span>{item.count}</span>
-        <AiOutlinePlus
+        <button
           onClick={() => {
             increaseItemCount(item.id);
           }}
-        />
+        >
+          <AiOutlinePlus />
+        </button>
       </div>
     </div>
   );

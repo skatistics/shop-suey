@@ -17,11 +17,32 @@ function DarkModeContextProvider({ children }) {
     if (theme === "dark") {
       element.classList.add("dark");
       localStorage.setItem("theme", "dark");
-    } else {
+    } else if (theme === "light") {
       element.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.removeItem("theme");
+      element.classList.remove("dark"); //remove dark class from html element
+      setTheme("light");
       localStorage.setItem("theme", "light");
     }
   }, [theme]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleThemeChange = () => {
+      if (mediaQuery.matches) {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    };
+    handleThemeChange(); // Call handleThemeChange when the component mounts
+    mediaQuery.addEventListener("change", handleThemeChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleThemeChange);
+    };
+  }, []);
 
   return (
     <DarkModeContext.Provider value={{ theme, themeToggle }}>
