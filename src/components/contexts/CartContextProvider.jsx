@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { createContext, useState } from "react";
 export const CartContext = createContext([]);
 
 export default function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
+  useEffect(() => {
+    let tempAmount = 0;
+    cartList.forEach((item) => {
+      tempAmount += item.price * item.count;
+    });
+    setTotalAmount(tempAmount);
+  }, [cartList]);
 
   function addToCart(product) {
     const duplicate = cartList.find((item) => item.id === product.id);
@@ -60,6 +68,7 @@ export default function CartContextProvider({ children }) {
         removeFromCart,
         decreaseItemCount,
         increaseItemCount,
+        totalAmount,
       }}
     >
       {children}
