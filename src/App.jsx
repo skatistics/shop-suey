@@ -13,29 +13,34 @@ import CartContextProvider from "./components/contexts/CartContextProvider";
 import DarkModeContextProvider from "./components/contexts/DarkModeContextProvider";
 import NavBar from "./components/NavBar";
 import CheckOutPage from "./pages/CheckOutPage";
+import SearchResultsModal from "./components/modals/SearchResultsModal";
+import ProductContextProvider from "./components/contexts/ProductContextProvider";
 
 function App() {
   return (
     <BrowserRouter>
       <DarkModeContextProvider>
-        <CartContextProvider>
-          <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
-            <NavBar />
-            <CartListModal />
-            <LoginSignupModal />
-            <FloatingDarkModeToggle />
-            <BackToTopButton />
-            <FloatingCartList />
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/products/:productId/" element={<ProductPage />} />
-              <Route path="/checkout" element={<CheckOutPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </div>
-        </CartContextProvider>
+        <ProductContextProvider>
+          <CartContextProvider>
+            <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
+              <NavBar />
+              <SearchResultsModal />
+              <CartListModal />
+              <LoginSignupModal />
+              <FloatingDarkModeToggle />
+              <BackToTopButton />
+              <FloatingCartList />
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/products/:productId/" element={<ProductPage />} />
+                <Route path="/checkout" element={<CheckOutPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </div>
+          </CartContextProvider>
+        </ProductContextProvider>
       </DarkModeContextProvider>
     </BrowserRouter>
   );

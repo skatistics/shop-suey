@@ -1,37 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ProductList from "../components/products/ProductList";
 import Footer from "../components/Footer";
 import FeaturedBanner from "../components/products/FeaturedBanner";
 import CategoryModal from "../components/modals/CategoryModal";
 import LeftSection from "../components/sections/LeftSection";
 import RightSection from "../components/sections/RightSection";
+import { ProductContext } from "../components/contexts/ProductContextProvider";
 
 function LandingPage() {
-  const [products, setProducts] = useState([]);
-  const [discountedProducts, setDiscountedProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products?limit=150")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products/category")
-      .then((res) => res.json())
-      .then((data) => setCategories(data.categories));
-  }, []);
-
-  useEffect(() => {
-    if (products.length > 0) {
-      const discounts = products.filter(
-        (product) => product.discount != undefined
-      );
-      setDiscountedProducts(discounts);
-    }
-  }, [products]);
-
+  const products = useContext(ProductContext).products;
+  const discountedProducts = useContext(ProductContext).discountedProducts;
+  const categories = useContext(ProductContext).categories;
   return (
     <div className="space-y-6">
       <div className="flex flex-col-reverse xl:flex-row mx-auto">
