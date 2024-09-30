@@ -3,7 +3,7 @@ import { IoCart, IoSearch } from "react-icons/io5";
 import { openLoginSignupModal } from "./modals/LoginSignupModal";
 import Logo from "../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
-import { toggleCartList } from "./modals/CartList";
+import { toggleCartList } from "./modals/CartListModal";
 import DarkModeToggle from "./DarkModeToggle";
 
 function NavBar() {

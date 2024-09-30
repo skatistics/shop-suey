@@ -2,11 +2,11 @@ import { useContext } from "react";
 import websiteLogo from "../../assets/logo/logo.png";
 import { IoCart } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { ShopContext } from "../../App";
+import { CartContext } from "../contexts/CartContextProvider";
 
 function ProductItem({ product }) {
   const navigate = useNavigate();
-  const addToCart = useContext(ShopContext).addToCart;
+  const addToCart = useContext(CartContext).addToCart;
 
   const formatter = new Intl.NumberFormat("tl-PH", {
     style: "currency",

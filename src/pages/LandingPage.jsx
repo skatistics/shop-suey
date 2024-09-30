@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import ProductList from "../components/products/ProductList";
 import Footer from "../components/Footer";
 import FeaturedBanner from "../components/products/FeaturedBanner";
-import Vouchers from "../components/Vouchers";
-import Categories from "../components/Categories";
 import CategoryModal from "../components/modals/CategoryModal";
+import LeftSection from "../components/sections/LeftSection";
+import RightSection from "../components/sections/RightSection";
 
 function LandingPage() {
   const [products, setProducts] = useState([]);
+  const [discountedProducts, setDiscountedProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -22,15 +23,28 @@ function LandingPage() {
       .then((data) => setCategories(data.categories));
   }, []);
 
+  useEffect(() => {
+    if (products.length > 0) {
+      const discounts = products.filter(
+        (product) => product.discount != undefined
+      );
+      setDiscountedProducts(discounts);
+    }
+  }, [products]);
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col-reverse xl:flex-row mx-auto">
-        <Categories categories={categories} />
+        <div className="w-full xl:w-[15%] flex justify-center items-center">
+          <LeftSection categories={categories} />
+        </div>
         <FeaturedBanner />
-        <Vouchers />
+        <div className="w-full xl:w-[15%] flex justify-center items-center">
+          <RightSection />
+        </div>
       </div>
       <CategoryModal categories={categories} />
-      <ProductList products={products} />
+      <ProductList products={discountedProducts} />
       <div className="text-center" id="category-tv">
         TV PRODUCTS
       </div>
