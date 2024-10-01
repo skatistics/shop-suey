@@ -20,7 +20,7 @@ export function Modal({ children, id, className }) {
   return (
     <div
       id={id}
-      className={"hidden fixed z-20" + (className ? " " + className : "")}
+      className={"hidden fixed" + (className ? " " + className : "")}
     >
       {children}
     </div>
@@ -31,7 +31,7 @@ export function DisabledBGModal({ children, id, className }) {
   return (
     <div
       id={id}
-      className="disabled-bg-modal hidden fixed top-0 left-0 w-full h-full bg-gray-500/70 z-20 overflow-hidden"
+      className="disabled-bg-modal hidden fixed top-0 left-0 w-full h-full bg-gray-500/70 overflow-hidden"
     >
       <div
         className={

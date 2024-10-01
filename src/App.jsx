@@ -24,7 +24,7 @@ function App() {
           <CartContextProvider>
             <div className="min-h-dvh bg-[#d5dad6] dark:bg-[#0b0d0c]">
               <NavBar />
-              <SearchResultsModal />
+              {/* <SearchResultsModal /> */}
               <CartListModal />
               <LoginSignupModal />
               <FloatingDarkModeToggle />

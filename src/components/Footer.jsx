@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full space-x-2">
+    <div className="w-full space-x-2 flex align-center  text-ct-080D08 bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-[#222824]">
       <Link
         to="/about"
-        className="text-ct-white-f6f7f9 hover:underline px-5 text-xl"
+        className="hover:underline px-5 py-2 text-xl  font-medium "
       >
         About
       </Link>
       <Link
         to="/contact"
-        className="text-ct-white-f6f7f9 hover:underline px-5 text-xl"
+        className="hover:underline px-5 py-2 text-xl  font-medium"
       >
         Contact
       </Link>

@@ -28,7 +28,7 @@ export default function LoginSignupModal() {
     >
       <button
         onClick={() => closeLoginSignupModal()}
-        className="absolute top-4 right-4 z-40 w-7 h-7 rounded text-2xl text-white bg-slate-600 flex justify-center items-center"
+        className="absolute top-4 right-4 w-7 h-7 rounded text-2xl text-white bg-slate-600 flex justify-center items-center"
       >
         <IoClose />
       </button>

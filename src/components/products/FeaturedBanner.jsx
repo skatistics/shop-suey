@@ -43,15 +43,15 @@ function FeaturedBanner() {
   }, [currentIndex]);
 
   return (
-    <div className="max-w-[1400px] h-[780px] w-full pt-14 pb-16 px-5 xl:px-2 relative group">
+    <div className="max-w-[1400px] h-[780px] w-full pt-14 pb-16 px-5 xl:px-2 group">
       {/**background text */}
-      <div className="absolute top-1/3 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-5xl font-bold z-10  p-3">
-        HACKDOG SALE
-      </div>
+
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-      ></div>
+      >
+        <div className=" ">HACKDOG SALE</div>
+      </div>
       {/**left arrow */}
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
