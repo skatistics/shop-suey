@@ -21,9 +21,9 @@ export default function SearchResultsModal() {
         }
       >
         <div>
-          {searchedProducts.map((element) => {
+          {searchedProducts.map((element, index) => {
             return (
-              <div>
+              <div key={index}>
                 <div className="border-b-2 border-black">{element.title}</div>
                 <div className="border-b-2 border-black">
                   {element.category}

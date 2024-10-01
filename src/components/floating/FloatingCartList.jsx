@@ -23,8 +23,11 @@ function FloatingCartList() {
   return (
     <div className="flex justify-between items-center">
       {floatingCartList && (
-        <button onClick={() => toggleCartList()}>
-          <IoCart className="fixed top-10 right-4 size-[30px] hover:text-ct-light-tanly-DADED4 dark:hover:text-ct-dark-green-4D774E dark:hover:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.5)]" />
+        <button
+          onClick={() => toggleCartList()}
+          className="fixed top-6 right-4 p-3 rounded-full  text-ct-1F331F bg-ct-F2F7F2 dark:text-ct-D9E8D9 dark:bg-[#00ff3770] "
+        >
+          <IoCart className="text-2xl" />
         </button>
       )}
     </div>

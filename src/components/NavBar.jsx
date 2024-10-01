@@ -5,10 +5,11 @@ import Logo from "../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
 import { toggleCartList } from "./modals/CartListModal";
 import DarkModeToggle from "./DarkModeToggle";
+import SearchResultsModal from "./modals/SearchResultsModal";
 
 function NavBar({ setSearch }) {
   return (
-    <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
+    <div className="w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
       <div className="flex justify-between items-center text-ct-080D08 font-medium bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-[#222824]">
         <div className="justify-center items-center ">
           <Link to="/" className="flex items-center">
@@ -18,8 +19,11 @@ function NavBar({ setSearch }) {
             </span>
           </Link>
         </div>
-        {/* //SearchBar */}
-        <SearchBar setSearch={setSearch} />
+        {/* //SearchBar, SearchResult */}
+        <div className="">
+          <SearchBar setSearch={setSearch} />
+          <SearchResultsModal />
+        </div>
 
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center">
@@ -27,7 +31,7 @@ function NavBar({ setSearch }) {
             <IoCart className="size-[30px] dark:text-[#00ff3770]" />
           </button>
           <button onClick={() => openLoginSignupModal()} className="mx-4">
-            <div className="">
+            <div className="hover:underline">
               <div>Login/</div>
               <div>Signup</div>
             </div>

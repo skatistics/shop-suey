@@ -29,7 +29,7 @@ function FloatingDarkModeToggle() {
     ("");
   } else {
     return (
-      <div className="fixed right-4 bottom-20 z-50">
+      <div className="fixed top-6 right-[124px]">
         {theme === "dark" && (
           <button
             onClick={setTheme}
