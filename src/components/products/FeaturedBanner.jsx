@@ -44,22 +44,28 @@ function FeaturedBanner() {
 
   return (
     <div className="max-w-[1400px] h-[780px] w-full pt-14 pb-16 px-5 xl:px-2 group">
-      {/**background text */}
-
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
       >
-        <div className=" ">HACKDOG SALE</div>
+        <div className="flex items-center h-full">
+          {/**left arrow */}
+          <div className="opacity-0 group-hover:opacity-100 top-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactLeft onClick={prevSlide} size={30} />
+          </div>
+          {/**background text */}
+          <div className="flex-grow">
+            <div className="text-white text-center bg-red-700 p-14 text-6xl mx-auto w-[60%] font-black">
+              HALLOWEEN SALE
+            </div>
+          </div>
+          {/**right arrow */}
+          <div className="opacity-0 group-hover:opacity-100 top-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <BsChevronCompactRight onClick={nextSlide} size={30} />
+          </div>
+        </div>
       </div>
-      {/**left arrow */}
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
-      </div>
-      {/**right arrow */}
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
-      </div>
+
       <div className="flex top-4 justify-center py-2">
         {slides.map((slide, slideIndex) => (
           <div
