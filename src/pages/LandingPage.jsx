@@ -18,6 +18,7 @@ function LandingPage() {
           <LeftSection categories={categories} />
         </div>
         <FeaturedBanner />
+
         <div className="w-full xl:w-[15%] flex justify-center items-center">
           <RightSection />
         </div>

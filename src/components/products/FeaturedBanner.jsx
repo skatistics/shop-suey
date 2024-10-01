@@ -54,9 +54,9 @@ function FeaturedBanner() {
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>
           {/**background text */}
-          <div className="flex-grow">
-            <div className="text-white text-center bg-red-700 p-14 text-6xl mx-auto w-[60%] font-black">
-              HALLOWEEN SALE
+          <div className="flex-grow ">
+            <div className="text-white text-center w-[80%] bg-red-700 p-14 text-6xl font-black  ">
+              <span>HALLOWEEN SALE</span>
             </div>
           </div>
           {/**right arrow */}
