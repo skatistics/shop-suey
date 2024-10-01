@@ -37,7 +37,7 @@ function NavBar({ setSearch }) {
             </div>
           </button>
           {/* DarkMode */}
-          <DarkModeToggle />
+          {/* <DarkModeToggle /> */}
         </div>
       </div>
     </div>
