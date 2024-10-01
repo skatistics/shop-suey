@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import Logo from "../assets/logo/logo.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { CartContext } from "./contexts/CartContextProvider";
+import { Link } from "react-router-dom";
 
 function CartListItem({ item }) {
   const removeFromCart = useContext(CartContext).removeFromCart;
@@ -10,21 +11,24 @@ function CartListItem({ item }) {
 
   return (
     <div className="px-3 shadow-[0_5px_15px_rgba(0,0,0,0.3)] group/remove">
-      <div className="py-4 pt-2 flex">
-        <img
-          className="size-24"
-          src={item.image}
-          onError={(e) => {
-            e.target.onError = null;
-            e.target.src = Logo;
-          }}
-          alt="logo"
-        />
-        <div className="px-2">
-          <h1 className="">{item.category}</h1>
-          <p className="line-clamp-2">{item.description}</p>
+      <Link to={`/products/${item.id}`}>
+        <div className="py-4 pt-2 flex">
+          <img
+            className="size-24"
+            src={item.image}
+            onError={(e) => {
+              e.target.onError = null;
+              e.target.src = Logo;
+            }}
+            alt="logo"
+          />
+
+          <div className="px-2">
+            <h1 className="">{item.category}</h1>
+            <p className="line-clamp-2">{item.description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <div className="flex justify-end items-center pb-6 pr-2 space-x-2 ">
         <button

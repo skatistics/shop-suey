@@ -48,19 +48,16 @@ function FeaturedBanner() {
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
       >
-        <div className="flex items-center h-full">
+        <div className="h-full flex items-center">
           {/**left arrow */}
-          <div className="opacity-0 group-hover:opacity-100 top-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <div className="bg-yellow-600 opacity-0 group-hover:opacity-100 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>
-          {/**background text */}
-          <div className="flex-grow ">
-            <div className="text-white text-center w-[80%] bg-red-700 p-14 text-6xl font-black  ">
-              <span>HALLOWEEN SALE</span>
-            </div>
+          <div className="flex-grow bg-red-400">
+            <div className="w-96  bg-violet-300 mx-auto">HACKDOG</div>
           </div>
           {/**right arrow */}
-          <div className="opacity-0 group-hover:opacity-100 top-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+          <div className="bg-green-400 opacity-0 group-hover:opacity-100 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
             <BsChevronCompactRight onClick={nextSlide} size={30} />
           </div>
         </div>
