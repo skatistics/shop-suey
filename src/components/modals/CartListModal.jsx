@@ -40,7 +40,7 @@ function CartListModal() {
       <Modal
         id="cartlist-modal"
         className={
-          "h-[calc(100%-80px)] w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-slate-400 dark:bg-gray-600 rounded-t-xl flex-col"
+          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-slate-400 dark:bg-gray-600 rounded-t-xl flex-col"
         }
       >
         <div className="h-[calc(100%-64px)] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit">

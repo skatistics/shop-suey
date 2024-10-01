@@ -10,7 +10,7 @@ import FloatingDarkModeToggle from "./components/floating/FloatingDarkModeToggle
 import FloatingCartList from "./components/floating/FloatingCartList";
 import BackToTopButton from "./components/floating/BackToTopButton";
 import CartContextProvider from "./components/contexts/CartContextProvider";
-import DarkModeContextProvider from "./components/contexts/DarkModeContextProvider";
+import SystemPreferencesContextProvider from "./components/contexts/SystemPreferencesContextProvider";
 import NavBar from "./components/NavBar";
 import CheckOutPage from "./pages/CheckOutPage";
 import SearchResultsModal from "./components/modals/SearchResultsModal";
@@ -19,7 +19,7 @@ import ProductContextProvider from "./components/contexts/ProductContextProvider
 function App() {
   return (
     <BrowserRouter>
-      <DarkModeContextProvider>
+      <SystemPreferencesContextProvider>
         <ProductContextProvider>
           <CartContextProvider>
             <div className="min-h-dvh w-full bg-[#d5dad6] dark:bg-[#0b0d0c]">
@@ -41,7 +41,7 @@ function App() {
             </div>
           </CartContextProvider>
         </ProductContextProvider>
-      </DarkModeContextProvider>
+      </SystemPreferencesContextProvider>
     </BrowserRouter>
   );
 }

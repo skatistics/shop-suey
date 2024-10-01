@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { DarkModeContext } from "../contexts/DarkModeContextProvider";
+import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
 
 function FloatingDarkModeToggle() {
-  const theme = useContext(DarkModeContext).theme;
-  const setTheme = useContext(DarkModeContext).themeToggle;
+  const theme = useContext(SystemPreferencesContext).theme;
+  const setTheme = useContext(SystemPreferencesContext).themeToggle;
 
   const [darkModePopUp, setDarkModePopUp] = useState(false);
   useEffect(() => {
