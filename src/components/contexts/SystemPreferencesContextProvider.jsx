@@ -1,11 +1,12 @@
 import React, { createContext, useEffect, useState } from "react";
 
-export const DarkModeContext = createContext([]);
+export const SystemPreferencesContext = createContext([]);
 
-function DarkModeContextProvider({ children }) {
+function SystemPreferencesContextProvider({ children }) {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+  const [isTouch, setIsTouch] = useState(false);
 
   const element = document.documentElement; //html element
 
@@ -44,11 +45,30 @@ function DarkModeContextProvider({ children }) {
     };
   }, []);
 
+  useEffect(() => {
+    console.log("touch enabled is " + isTouchDevice());
+    setIsTouch(isTouchDevice());
+  }, []);
+
+  const isTouchDevice = () => {
+    const prefixes = ["", "-webkit-", "-moz-", "-o-", "-ms-", ""];
+    const mq = (query) => window.matchMedia(query).matches;
+
+    if (
+      "ontouchstart" in window ||
+      (window.DocumentTouch && document instanceof DocumentTouch)
+    ) {
+      return true;
+    }
+
+    return mq(["(", prefixes.join("touch-enabled),("), ")"].join(""));
+  };
+
   return (
-    <DarkModeContext.Provider value={{ theme, themeToggle }}>
+    <SystemPreferencesContext.Provider value={{ theme, themeToggle, isTouch }}>
       {children}
-    </DarkModeContext.Provider>
+    </SystemPreferencesContext.Provider>
   );
 }
 
-export default DarkModeContextProvider;
+export default SystemPreferencesContextProvider;
