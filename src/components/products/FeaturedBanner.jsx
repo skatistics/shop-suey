@@ -55,7 +55,7 @@ function FeaturedBanner() {
           </div>
           {/**background text */}
           <div className="w-[calc(100%-96px)]">
-            <div className="text-white text-center w-[80%] bg-red-700 text-6xl font-black break-words mx-auto">
+            <div className="text-white text-center w-[80%] bg-red-700 text-6xl font-black break-words mx-auto h-[300px]">
               <span>HALLOWEEN SALE</span>
             </div>
           </div>
