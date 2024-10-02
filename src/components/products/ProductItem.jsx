@@ -20,7 +20,7 @@ function ProductItem({ product }) {
   }
 
   return (
-    <div className="p-4 rounded-xl hover:shadow-lg text-ct-080D08 bg-ct-F2F7F2 dark:bg-[#222824] dark:text-ct-F2F7F2 group">
+    <div className="p-4 rounded-xl hover:shadow-lg text-ct-080D08 bg-ct-F2F7F2 dark:bg-ct-222824 dark:text-ct-F2F7F2 group">
       <div className="flex justify-center">
         <img
           src={product.image}
@@ -43,7 +43,7 @@ function ProductItem({ product }) {
       <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
         <button
           className={
-            "h-10 w-8/12 py-2 px-6  rounded-md  transition-all bg-[#6ad678] dark:bg-[#00ff3770]" +
+            "h-10 w-8/12 py-2 px-6  rounded-md  transition-all duration-300 bg-[#6ad678] dark:bg-[#00ff3770]" +
             (isTouch ? "" : " opacity-0 group-hover:opacity-100")
           }
           onClick={() => onClickProduct()}

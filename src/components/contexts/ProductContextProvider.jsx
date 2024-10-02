@@ -9,6 +9,29 @@ export default function ProductContextProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
 
+  // const [to, setTo] = useState("php");
+
+  // useEffect(() => {
+  //   fetch(
+  //     "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
+  //   ).then((res) =>
+  //     res.json().then((data) => {
+  //       setTo(data[from]);
+  //     })
+  //   );
+  // }, [from]);
+
+  // const convertCurrency = (amount) => {
+  //   return (totalAmount * to).toFixed(2);
+  // };
+
+  // const numberFormat = (value) =>
+  //   new Intl.NumberFormat("en-PH", {
+  //     style: "currency",
+  //     currency: "PHP",
+  //   }).format(value);
+  /** */
+
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products?limit=150")
       .then((res) => res.json())
