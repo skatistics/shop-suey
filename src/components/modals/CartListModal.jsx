@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CartListItem from "../CartListItem";
 import { Modal, openModal, hideModal } from "./CustomModal";
 import { CartContext } from "../contexts/CartContextProvider";
@@ -35,26 +35,33 @@ function CartListModal() {
   const cartList = useContext(CartContext).cartList;
   const totalAmount = useContext(CartContext).totalAmount;
   const navigate = useNavigate();
+
   return (
     <div>
       <Modal
         id="cartlist-modal"
         className={
-          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-slate-400 dark:bg-gray-600 rounded-t-xl flex-col"
+          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-ct-F2F7F2 dark:bg-gray-600  flex-col rounded-tl-sm"
         }
       >
-        <div className="h-[calc(100%-64px)] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit">
-          {!cartList.length > 0 && <div>Cart List is Empty!</div>}
+        <div className="h-[calc(100%-64px)] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit rounded-tl-md">
+          {!cartList.length > 0 && (
+            <div className="text-ct-191819 font-medium text-center pt-8">
+              Cart is Empty 😕 Buy something!
+            </div>
+          )}
           {cartList.map((item) => {
             return <CartListItem key={item.id} item={item} />;
           })}
         </div>
-        <div className="border-2 border-black h-16">
-          <div className="">Total: {totalAmount * 50}</div>
-          <div className="flex justify-end">
+        <div className="h-16">
+          <div className="bg-yellow-100 text-ct-191819 font-medium">
+            Total: {totalAmount * 50}
+          </div>
+          <div className="w-full  bg-ct-5D985E text-center">
             <button
               onClick={() => navigate("/checkout")}
-              className="bg-yellow-300 mr-3"
+              className=" text-ct-F2F7F2 bg-ct-5D985E px-4 py-2 hover:underline"
             >
               Check Out
             </button>

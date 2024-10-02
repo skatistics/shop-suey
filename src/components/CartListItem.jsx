@@ -9,8 +9,13 @@ function CartListItem({ item }) {
   const increaseItemCount = useContext(CartContext).increaseItemCount;
   const decreaseItemCount = useContext(CartContext).decreaseItemCount;
 
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "PHP",
+  });
+
   return (
-    <div className="px-3 shadow-[0_5px_15px_rgba(0,0,0,0.3)] group/remove">
+    <div className="px-3   shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)] group/remove">
       <Link to={`/products/${item.id}`}>
         <div className="py-4 pt-2 flex">
           <img
@@ -24,35 +29,38 @@ function CartListItem({ item }) {
           />
 
           <div className="px-2">
-            <h1 className="">{item.category}</h1>
-            <p className="line-clamp-2">{item.description}</p>
+            {/* <h1 className="">{item.category}</h1> */}
+            <p className="line-clamp-2 font-medium">{item.description}</p>
+            <p className="flex font-bold p-4">{formatter.format(item.price)}</p>
           </div>
         </div>
       </Link>
 
-      <div className="flex justify-end items-center pb-6 pr-2 space-x-2 ">
+      <div className="flex justify-end items-center ">
         <button
           onClick={() => removeFromCart(item.id)}
-          className="absolute ml-5 text-sm opacity-0 scale-y-0 left-0 bg-ct-dark-green-9DC88D text-white font-bold px-2 rounded-full transition-transform duration-[400ms] group-hover/remove:opacity-100 group-hover/remove:scale-y-100"
+          className="absolute opacity-0 scale-y-0 left-0 bg-ct-5D985E text-ct-F2F7F2 ml-3 mb-4 px-2 py-1 font-bold rounded-xl transition-transform duration-[400ms] group-hover/remove:opacity-100 group-hover/remove:scale-y-100"
         >
           Remove
         </button>
-        <button
-          onClick={() => {
-            decreaseItemCount(item.id);
-          }}
-          className={item.count < 2 ? "hidden" : ""}
-        >
-          <AiOutlineMinus />
-        </button>
-        <span>{item.count}</span>
-        <button
-          onClick={() => {
-            increaseItemCount(item.id);
-          }}
-        >
-          <AiOutlinePlus />
-        </button>
+        <div className="flex justify-center items-center pb-4 pr-2 space-x-2 font-medium">
+          <button
+            onClick={() => {
+              decreaseItemCount(item.id);
+            }}
+            className={item.count < 2 ? "hidden" : ""}
+          >
+            <AiOutlineMinus />
+          </button>
+          <span>{item.count}</span>
+          <button
+            onClick={() => {
+              increaseItemCount(item.id);
+            }}
+          >
+            <AiOutlinePlus />
+          </button>
+        </div>
       </div>
     </div>
   );

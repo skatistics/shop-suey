@@ -19,7 +19,7 @@ function SearchBar() {
           onFocus={(e) => openSearchResultsModal(e.target.value)}
           onBlur={closeSearchResultsModal}
         />
-        <IoSearch className="absolute top-1/2 -translate-y-1/2 right-3" />
+        <IoSearch className="absolute top-1/2 -translate-y-1/2 right-3 text-ct-191819" />
       </div>
     </div>
   );
