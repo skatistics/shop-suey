@@ -26,7 +26,10 @@ function LandingPage() {
       </div>
       <CategoryModal categories={categories} />
       <ProductList products={discountedProducts} />
-      <div className="text-center" id="category-tv">
+      <div
+        className="text-center bg-ct-F2F7F2 text-ct-191819 font-medium p-2 w-[50%] mx-auto border-2  rounded-md dark:bg-gray-600"
+        id="category-tv"
+      >
         TV PRODUCTS
       </div>
       <ProductList products={products} category="tv" />

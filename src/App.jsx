@@ -22,7 +22,7 @@ function App() {
       <SystemPreferencesContextProvider>
         <ProductContextProvider>
           <CartContextProvider>
-            <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-1000 dark:bg-ct-0B0D0C">
+            <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-300 dark:bg-ct-0B0D0C">
               {/* bg-[#d5dad6] */}
               {/* dark:bg-[#0b0d0c] */}
               <NavBar />
