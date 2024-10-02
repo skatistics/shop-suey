@@ -29,7 +29,7 @@ function ProductPage() {
     if (products.length > 0) {
       setIsFetching(false);
     }
-  }, [products]);
+  }, [products, productId]);
 
   if (!isFetching && !product) {
     return <NotFoundPage />;

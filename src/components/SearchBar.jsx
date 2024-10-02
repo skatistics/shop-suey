@@ -17,7 +17,6 @@ function SearchBar() {
           className="md:w-[400px] rounded-full border-2 border-ct-080D08 px-3 text-ct-080D08"
           onChange={(e) => setSearch(e.target.value)}
           onFocus={(e) => openSearchResultsModal(e.target.value)}
-          onBlur={closeSearchResultsModal}
         />
         <IoSearch className="absolute top-1/2 -translate-y-1/2 right-3 text-ct-191819" />
       </div>
