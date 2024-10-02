@@ -6,8 +6,11 @@ import SearchBar from "./SearchBar";
 import { toggleCartList } from "./modals/CartListModal";
 import DarkModeToggle from "./DarkModeToggle";
 import SearchResultsModal from "./modals/SearchResultsModal";
+import { CartContext } from "./contexts/CartContextProvider";
+import { useContext } from "react";
 
 function NavBar({ setSearch }) {
+  const totalCount = useContext(CartContext).totalCount;
   return (
     <div className="w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)] ">
       <div className="flex justify-between items-center text-ct-191819 font-medium bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-ct-222824 transition-all duration-300">
@@ -26,10 +29,14 @@ function NavBar({ setSearch }) {
         </div>
 
         {/* Cart, Login/Signup*/}
-        <div className="flex justify-between items-center">
-          <button onClick={() => toggleCartList()} className="mx-4">
+        <div className="flex justify-between items-center ">
+          <button onClick={() => toggleCartList()} className="relative">
             <IoCart className="size-[30px] text-ct-191819 dark:text-[#00ff3770]" />
+            <div className="text-center z-10 bg-ct-base-67A770 rounded-full -top-1 text-sm -right-2 size-5 absolute">
+              {totalCount}
+            </div>
           </button>
+
           <button onClick={() => openLoginSignupModal()} className="mx-4">
             <div className="hover:underline text-ct-191819 dark:text-ct-F2F7F2">
               <div>Login/</div>

@@ -25,7 +25,6 @@ function LandingPage() {
         </div>
       </div>
       <CategoryModal categories={categories} />
-      categories.map
       <ProductList products={discountedProducts} />
       <div className="text-center" id="category-tv">
         TV PRODUCTS

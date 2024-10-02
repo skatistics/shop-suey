@@ -5,12 +5,16 @@ export const CartContext = createContext([]);
 export default function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
   useEffect(() => {
     let tempAmount = 0;
+    let tempCount = 0;
     cartList.forEach((item) => {
       tempAmount += item.price * item.count;
+      tempCount += item.count;
     });
     setTotalAmount(tempAmount);
+    setTotalCount(tempCount);
   }, [cartList]);
 
   function addToCart(product) {
@@ -69,6 +73,7 @@ export default function CartContextProvider({ children }) {
         decreaseItemCount,
         increaseItemCount,
         totalAmount,
+        totalCount,
       }}
     >
       {children}
