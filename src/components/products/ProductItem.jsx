@@ -4,16 +4,13 @@ import { IoCart } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContextProvider";
 import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
+import { ProductContext } from "../contexts/ProductContextProvider";
 
 function ProductItem({ product }) {
   const navigate = useNavigate();
   const addToCart = useContext(CartContext).addToCart;
   const isTouch = useContext(SystemPreferencesContext).isTouch;
-
-  const formatter = new Intl.NumberFormat("tl-PH", {
-    style: "currency",
-    currency: "PHP",
-  });
+  const formatPHP = useContext(ProductContext).formatPHP;
 
   function onClickProduct() {
     navigate(`/products/${product.id}`);
@@ -37,7 +34,7 @@ function ProductItem({ product }) {
       </div>
 
       <div className="flex justify-end text-2xl font-bold">
-        {formatter.format(product.price * 50)}
+        {formatPHP(product.price)}
       </div>
 
       <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
