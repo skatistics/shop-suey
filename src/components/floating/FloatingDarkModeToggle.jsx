@@ -7,21 +7,22 @@ function FloatingDarkModeToggle() {
   const setTheme = useContext(SystemPreferencesContext).themeToggle;
 
   const [darkModePopUp, setDarkModePopUp] = useState(false);
-  useEffect(() => {
-    if (window.addEventListener) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          setDarkModePopUp(true);
-        } else {
-          setDarkModePopUp(false);
-        }
-      });
+
+  function scrollHandler() {
+    if (window.scrollY > 300) {
+      setDarkModePopUp(true);
+    } else {
+      setDarkModePopUp(false);
     }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
   }, []);
 
   useEffect(() => {
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
 

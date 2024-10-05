@@ -6,19 +6,22 @@ import { CartContext } from "../contexts/CartContextProvider";
 function FloatingCartList() {
   const totalCount = useContext(CartContext).totalCount;
   const [floatingCartList, floatCartList] = useState(false);
+
+  function scrollHandler() {
+    if (window.scrollY > 300) {
+      floatCartList(true);
+    } else {
+      floatCartList(false);
+    }
+  }
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        floatCartList(true);
-      } else {
-        floatCartList(false);
-      }
-    });
+    window.addEventListener("scroll", scrollHandler);
   }, []);
 
   useEffect(() => {
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
 
