@@ -3,6 +3,7 @@ import CartListItem from "../CartListItem";
 import { Modal, openModal, hideModal } from "./CustomModal";
 import { CartContext } from "../contexts/CartContextProvider";
 import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../contexts/ProductContextProvider";
 
 export function toggleCartList() {
   const cartListModal = document.getElementById("cartlist-modal");
@@ -35,6 +36,7 @@ function CartListModal() {
   const cartList = useContext(CartContext).cartList;
   const totalAmount = useContext(CartContext).totalAmount;
   const navigate = useNavigate();
+  const formatPHP = useContext(ProductContext).formatPHP;
 
   return (
     <div>
@@ -56,7 +58,7 @@ function CartListModal() {
         </div>
         <div className="h-16">
           <div className="bg-yellow-100 text-ct-191819 font-medium">
-            Total: {totalAmount * 50}
+            Total: {formatPHP(totalAmount)}
           </div>
           <div className="w-full  bg-ct-5D985E text-center">
             <button

@@ -3,16 +3,13 @@ import Logo from "../assets/logo/logo.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { CartContext } from "./contexts/CartContextProvider";
 import { Link } from "react-router-dom";
+import { ProductContext } from "./contexts/ProductContextProvider";
 
 function CartListItem({ item }) {
   const removeFromCart = useContext(CartContext).removeFromCart;
   const increaseItemCount = useContext(CartContext).increaseItemCount;
   const decreaseItemCount = useContext(CartContext).decreaseItemCount;
-
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "PHP",
-  });
+  const formatPHP = useContext(ProductContext).formatPHP;
 
   return (
     <div className="px-3   shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)] group/remove">
@@ -31,7 +28,7 @@ function CartListItem({ item }) {
           <div className="px-2">
             {/* <h1 className="">{item.category}</h1> */}
             <p className="line-clamp-2 font-medium">{item.description}</p>
-            <p className="flex font-bold p-4">{formatter.format(item.price)}</p>
+            <p className="flex font-bold p-4">{formatPHP(item.price)}</p>
           </div>
         </div>
       </Link>

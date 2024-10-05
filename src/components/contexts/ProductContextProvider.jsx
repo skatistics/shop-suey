@@ -9,28 +9,32 @@ export default function ProductContextProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
 
-  // const [to, setTo] = useState("php");
+  const [conversion, setConversion] = useState(0);
+  const formatter = new Intl.NumberFormat("tl-PH", {
+    style: "currency",
+    currency: "PHP",
+  });
 
-  // useEffect(() => {
-  //   fetch(
-  //     "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
-  //   ).then((res) =>
-  //     res.json().then((data) => {
-  //       setTo(data[from]);
-  //     })
-  //   );
-  // }, [from]);
+  const formatPHP = (input) => {
+    return formatter.format(input);
+  };
 
-  // const convertCurrency = (amount) => {
-  //   return (totalAmount * to).toFixed(2);
-  // };
+  useEffect(() => {
+    fetch(
+      "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
+    ).then((res) =>
+      res.json().then((data) => {
+        setConversion(data["usd"]["php"]);
+      })
+    );
+  }, []);
 
-  // const numberFormat = (value) =>
-  //   new Intl.NumberFormat("en-PH", {
-  //     style: "currency",
-  //     currency: "PHP",
-  //   }).format(value);
-  /** */
+  useEffect(() => {
+    const tempProducts = products.map((product) => {
+      product.price = product.price * conversion;
+      return product;
+    });
+  }, [products, conversion]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products?limit=150")
@@ -82,6 +86,7 @@ export default function ProductContextProvider({ children }) {
         categories,
         search,
         setSearch,
+        formatPHP,
       }}
     >
       {children}
