@@ -10,7 +10,7 @@ function DarkModeToggle() {
     <div>
       {theme === "dark" && (
         <button onClick={setTheme} className=" p-3 " type="button">
-          <FiSun className="text-2xl text-[#00ff3770] transition-all duration-300" />
+          <FiSun className="text-2xl text-ct-5D985E transition-all duration-300" />
         </button>
       )}
 

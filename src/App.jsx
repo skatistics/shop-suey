@@ -23,8 +23,6 @@ function App() {
         <ProductContextProvider>
           <CartContextProvider>
             <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-300 dark:bg-ct-0B0D0C">
-              {/* bg-[#d5dad6] */}
-              {/* dark:bg-[#0b0d0c] */}
               <NavBar />
               <SearchResultsModal />
               <CartListModal />

@@ -6,7 +6,7 @@ export default function LeftSection({ categories }) {
     <div
       id="left-section"
       className={
-        "bg-ct-F2F7F2 text-ct-191819 font-medium dark:bg-gray-600 space-y-2 py-2 px-2 w-full ml-5 mr-3 flex flex-wrap justify-center items-center xl:block xl:rounded-xl transition-all duration-300"
+        "bg-ct-F2F7F2 text-ct-191819 font-medium dark:bg-ct-222824 dark:text-ct-F2F7F2  space-y-2 py-2 px-2 w-full ml-5 mr-3 flex flex-wrap justify-center items-center xl:block xl:rounded-xl transition-all duration-300"
       }
     >
       <div className="text-2xl text-center">Categories</div>
