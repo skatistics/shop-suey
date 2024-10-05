@@ -6,7 +6,10 @@ export default function ProductSection({ categories, products }) {
       {categories.map((category) => {
         return (
           <div key={`category-${category}`}>
-            <div className="text-center" id={`category-${category}`}>
+            <div
+              className="text-center bg-ct-F2F7F2 text-ct-191819 font-medium p-2 w-[50%] mx-auto border-2  rounded-md dark:bg-gray-600"
+              id={`category-${category}`}
+            >
               {category.toUpperCase()}
             </div>
             <ProductList products={products} category={category} />
