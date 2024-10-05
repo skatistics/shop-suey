@@ -23,7 +23,7 @@ export default function LoginSignupModal() {
     <DisabledBGModal
       id="login-signup-modal"
       className={
-        "top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded p-5 bg-slate-400"
+        "top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rounded p-5 bg-slate-400 z-50"
       }
     >
       <button

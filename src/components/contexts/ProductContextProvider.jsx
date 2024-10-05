@@ -30,17 +30,16 @@ export default function ProductContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const tempProducts = products.map((product) => {
-      product.price = product.price * conversion;
-      return product;
-    });
-  }, [products, conversion]);
-
-  useEffect(() => {
     fetch("https://fakestoreapi.in/api/products?limit=150")
       .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+      .then((data) =>
+        setProducts(
+          data.products.map((product) => {
+            return { ...product, price: product.price * conversion };
+          })
+        )
+      );
+  }, [conversion]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products/category")

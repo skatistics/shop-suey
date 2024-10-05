@@ -8,9 +8,13 @@ import DarkModeToggle from "./DarkModeToggle";
 import SearchResultsModal from "./modals/SearchResultsModal";
 import { CartContext } from "./contexts/CartContextProvider";
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 
 function NavBar({ setSearch }) {
   const totalCount = useContext(CartContext).totalCount;
+  const location = useLocation();
+  const pathname = location.pathname;
+
   return (
     <div className="w-full drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)] ">
       <div className="flex justify-between items-center text-ct-191819 font-medium bg-ct-F2F7F2 py-2 dark:text-ct-F2F7F2 dark:bg-ct-222824 transition-all duration-300">
@@ -23,11 +27,12 @@ function NavBar({ setSearch }) {
           </Link>
         </div>
         {/* //SearchBar, SearchResult */}
-        <div>
-          <SearchBar setSearch={setSearch} />
-          <SearchResultsModal />
-        </div>
-
+        {pathname == "/" && (
+          <div>
+            <SearchBar setSearch={setSearch} />
+            <SearchResultsModal />
+          </div>
+        )}
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center ">
           <button onClick={() => toggleCartList()} className="relative">
