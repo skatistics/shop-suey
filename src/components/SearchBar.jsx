@@ -14,7 +14,7 @@ function SearchBar() {
         <input
           type="text"
           placeholder="Search"
-          className="md:w-[400px] rounded-full border-2 border-ct-080D08 px-3 text-ct-080D08"
+          className="w-[100px] sm:w-[300px]  md:w-[400px] rounded-full border-2 border-ct-080D08 px-3 text-ct-080D08"
           onChange={(e) => setSearch(e.target.value)}
           onFocus={(e) => openSearchResultsModal(e.target.value)}
         />
