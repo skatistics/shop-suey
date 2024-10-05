@@ -7,6 +7,7 @@ import LeftSection from "../components/sections/LeftSection";
 import RightSection from "../components/sections/RightSection";
 import { ProductContext } from "../components/contexts/ProductContextProvider";
 import ProductSection from "../components/sections/ProductSection";
+import FloatingCategoryToggle from "../components/floating/FloatingCategoryToggle";
 
 function LandingPage() {
   const products = useContext(ProductContext).products;
@@ -28,7 +29,8 @@ function LandingPage() {
           <RightSection />
         </div>
       </div>
-      <CategoryModal categories={categories} />
+      <FloatingCategoryToggle />
+      <CategoryModal />
       <ProductList products={discountedProducts} />
       <ProductSection categories={categories} products={products} />
       <Footer />
