@@ -31,7 +31,7 @@ function FloatingCategoryToggle() {
     <>
       <button
         id="category-toggle"
-        className="fixed top-0 left-4 hidden rounded-full p-2 text-ct-1F331F bg-ct-F2F7F2 dark:text-ct-D9E8D9 dark:bg-[#00ff3770] border-2 border-ct-base-67A770"
+        className="fixed top-0 left-4 hidden rounded-full p-2 text-ct-1F331F bg-ct-F2F7F2 dark:text-ct-D9E8D9 dark:bg-[#00ff37] border-2 border-ct-base-67A770"
         onClick={() => toggleCategoryModal()}
       >
         Categories
