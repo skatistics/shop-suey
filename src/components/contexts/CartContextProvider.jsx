@@ -1,11 +1,15 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import { createContext, useState } from "react";
 export const CartContext = createContext([]);
+import { useNavigate } from "react-router-dom";
 
 export default function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const navigate = useNavigate();
+  const [checkOutStatus, setCheckOutStatus] = useState(false);
+
   useEffect(() => {
     let tempAmount = 0;
     let tempCount = 0;
@@ -64,6 +68,13 @@ export default function CartContextProvider({ children }) {
     setCartList(removeHandler);
   }
 
+  function checkOut() {
+    setCartList([]);
+    setCheckOutStatus(true);
+    navigate("/");
+    setTimeout(() => window.alert("hakdog"), 500);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -74,6 +85,9 @@ export default function CartContextProvider({ children }) {
         increaseItemCount,
         totalAmount,
         totalCount,
+        checkOut,
+        checkOutStatus,
+        setCheckOutStatus,
       }}
     >
       {children}

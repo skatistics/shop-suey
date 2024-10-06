@@ -10,11 +10,20 @@ import ProductSection from "../components/sections/ProductSection";
 import FloatingCategoryToggle from "../components/floating/FloatingCategoryToggle";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
+import { CartContext } from "../components/contexts/CartContextProvider";
 
 function LandingPage() {
   const products = useContext(ProductContext).products;
   const discountedProducts = useContext(ProductContext).discountedProducts;
   const categories = useContext(ProductContext).categories;
+  const checkOutStatus = useContext(CartContext).checkOutStatus;
+  const setCheckOutStatus = useContext(CartContext).setCheckOutStatus;
+  // useEffect(() => {
+  //   if (checkOutStatus == true) {
+  //     setCheckOutStatus(false);
+  //     setTimeout(() => window.alert("hakdog"), 500);
+  //   }
+  // }, []);
   return (
     <div className="space-y-6">
       <div
