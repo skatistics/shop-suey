@@ -2,7 +2,7 @@ function ContactPage() {
   const contactInfo = [
     {
       id: 1,
-      name: "Scott Peña",
+      name: "Joshua Scott Peña",
       linkedin: "https://www.linkedin.com/in/itsjoshuascott/",
     },
     {
@@ -26,13 +26,15 @@ function ContactPage() {
           {contactInfo.map((contact) => {
             return (
               <div
-                className="bg-ct-cyan-283541 flex p-2 rounded-md"
+                className="bg-ct-base-67A770 dark:bg-ct-222824 flex p-2 rounded-md"
                 key={contact.id}
               >
-                <div className="px-2 text-ct-white-f6f7f9">
+                <div className="px-2 text-ct-222824 dark:text-ct-F2F7F2">
                   <div className="font-bold">{contact.name}</div>
                   <div>
-                    <a href={contact.linkedin}>LinkedIn Profile</a>
+                    <a href={contact.linkedin} className="hover:underline">
+                      LinkedIn Profile
+                    </a>
                   </div>
                 </div>
               </div>

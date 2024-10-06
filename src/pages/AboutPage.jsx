@@ -21,7 +21,7 @@ function AboutPage() {
   ];
 
   return (
-    <div className="px-6 md:px-0  md:container mx-auto pt-6 space-y-6 text-ct-light-browngrey-3C403D">
+    <div className="px-6 md:px-0  md:container mx-auto pt-6 space-y-6 text-ct-222824 dark:text-ct-F2F7F2">
       <div className="w-full flex justify-center"></div>
 
       <div className="space-y-2">
