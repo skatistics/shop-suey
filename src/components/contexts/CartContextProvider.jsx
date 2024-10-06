@@ -72,7 +72,7 @@ export default function CartContextProvider({ children }) {
     setCartList([]);
     setCheckOutStatus(true);
     navigate("/");
-    setTimeout(() => window.alert("hakdog"), 500);
+    setTimeout(() => window.alert("Order Successful!"), 500);
   }
 
   return (
