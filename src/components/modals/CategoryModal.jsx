@@ -46,12 +46,20 @@ function CategoryModal() {
 
             <span className="xl:hidden px-2">-</span>
             <div className="px-2">
-              <a href="#discounts" className="hover:underline">
+              <a
+                href="#banner-section"
+                onClick={closeCategoryModal}
+                className="hover:underline"
+              >
                 Featured
               </a>
             </div>
             <div className="px-2">
-              <a href="#discounts" className="hover:underline">
+              <a
+                href="#discounts"
+                onClick={closeCategoryModal}
+                className="hover:underline"
+              >
                 Discounts
               </a>
             </div>

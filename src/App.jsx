@@ -5,9 +5,7 @@ import ContactPage from "./pages/ContactPage";
 import ProductPage from "./pages/ProductPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginSignupModal from "./components/modals/LoginSignupModal";
-import CartListModal from "./components/modals/CartListModal";
 import FloatingDarkModeToggle from "./components/floating/FloatingDarkModeToggle";
-import FloatingCartList from "./components/floating/FloatingCartList";
 import BackToTopButton from "./components/floating/BackToTopButton";
 import CartContextProvider from "./components/contexts/CartContextProvider";
 import SystemPreferencesContextProvider from "./components/contexts/SystemPreferencesContextProvider";
@@ -25,11 +23,9 @@ function App() {
             <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-300 dark:bg-ct-0B0D0C">
               <NavBar />
               <SearchResultsModal />
-              <CartListModal />
               <LoginSignupModal />
-              <FloatingDarkModeToggle />
               <BackToTopButton />
-              <FloatingCartList />
+              <FloatingDarkModeToggle />
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<AboutPage />} />

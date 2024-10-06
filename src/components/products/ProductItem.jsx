@@ -40,8 +40,10 @@ function ProductItem({ product }) {
       <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
         <button
           className={
-            "h-10 w-8/12 py-2 px-6  rounded-md  transition-all duration-300 bg-[#6ad678] dark:bg-[#00ff3770]" +
-            (isTouch ? "" : " opacity-0 group-hover:opacity-100")
+            "h-10 w-8/12 py-2 px-6  rounded-md   bg-[#6ad678] dark:bg-[#00ff3770]" +
+            (isTouch
+              ? ""
+              : " transition-opacity opacity-0 group-hover:opacity-100")
           }
           onClick={() => onClickProduct()}
         >
@@ -49,8 +51,10 @@ function ProductItem({ product }) {
         </button>
         <button
           className={
-            "h-10 px-2 rounded-md transition-all" +
-            (isTouch ? "" : " opacity-0 group-hover:opacity-100")
+            "h-10 px-2 rounded-md transition-opacity" +
+            (isTouch
+              ? ""
+              : " transition-opacity opacity-0 group-hover:opacity-100")
           }
           onClick={() => addToCart(product)}
         >
