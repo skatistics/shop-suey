@@ -8,6 +8,8 @@ import RightSection from "../components/sections/RightSection";
 import { ProductContext } from "../components/contexts/ProductContextProvider";
 import ProductSection from "../components/sections/ProductSection";
 import FloatingCategoryToggle from "../components/floating/FloatingCategoryToggle";
+import CartListModal from "../components/modals/CartListModal";
+import FloatingCartList from "../components/floating/FloatingCartList";
 
 function LandingPage() {
   const products = useContext(ProductContext).products;
@@ -31,6 +33,14 @@ function LandingPage() {
       </div>
       <FloatingCategoryToggle />
       <CategoryModal />
+      <CartListModal />
+      <FloatingCartList />
+      <div
+        className="text-center bg-ct-F2F7F2 text-ct-191819 font-medium p-2 w-[50%] mx-auto border-2  rounded-md dark:bg-ct-222824 dark:text-ct-F2F7F2 mb-4"
+        id="discounts"
+      >
+        Discounted Products
+      </div>
       <ProductList products={discountedProducts} />
       <ProductSection categories={categories} products={products} />
       <Footer />

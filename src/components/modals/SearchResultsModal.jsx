@@ -47,7 +47,7 @@ export default function SearchResultsModal() {
 
   return (
     <div className={searchedProducts.length > 0 ? "" : "hidden"}>
-      <Modal id="search-results-modal" className={"md:w-[400px] h-[400px]"}>
+      <Modal id="search-results-modal" className={"md:w-[400px] h-auto mt-5"}>
         {isTouch ? (
           <SearchList ref={sliderRef} />
         ) : (

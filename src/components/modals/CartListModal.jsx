@@ -43,7 +43,7 @@ function CartListModal() {
       <Modal
         id="cartlist-modal"
         className={
-          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-ct-F2F7F2 dark:bg-ct-222824 flex-col rounded-tl-sm z-10"
+          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] flex-col rounded-tl-sm  bg-ct-F2F7F2 text-ct-0B0D0C dark:text-ct-F2F7F2 dark:bg-ct-45634F shadow-lg z-10"
         }
       >
         <div className="h-[calc(100%-64px)] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit rounded-tl-md">
