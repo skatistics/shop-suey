@@ -26,9 +26,12 @@ function CartListItem({ item }) {
           />
 
           <div className="px-2">
-            {/* <h1 className="">{item.category}</h1> */}
-            <p className="line-clamp-2 font-medium">{item.description}</p>
-            <p className="flex font-bold p-4">{formatPHP(item.price)}</p>
+            <p className="line-clamp-2 font-bold text-ct-222824 dark:text-ct-F2F7F2">
+              {item.title}
+            </p>
+            <p className="flex font-bold p-4 text-ct-222824 dark:text-ct-F2F7F2">
+              {formatPHP(item.price)}
+            </p>
           </div>
         </div>
       </Link>
@@ -45,12 +48,17 @@ function CartListItem({ item }) {
             onClick={() => {
               decreaseItemCount(item.id);
             }}
-            className={item.count < 2 ? "hidden" : ""}
+            className={
+              item.count < 2 ? "hidden" : "text-ct-222824 dark:text-ct-F2F7F2"
+            }
           >
             <AiOutlineMinus />
           </button>
-          <span>{item.count}</span>
+          <span className="text-ct-222824 dark:text-ct-F2F7F2">
+            {item.count}
+          </span>
           <button
+            className="text-ct-222824 dark:text-ct-F2F7F2"
             onClick={() => {
               increaseItemCount(item.id);
             }}

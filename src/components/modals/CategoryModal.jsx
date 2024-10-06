@@ -30,11 +30,14 @@ function CategoryModal() {
           }
         >
           <div className="text-2xl text-center">Categories</div>
+          <div className="hidden xl:block">
+            <hr className="border-ct-black-19191A dark:border-ct-white-FEFCFF" />
+          </div>
           <div className="flex flex-wrap justify-center items-center xl:block">
             <Categories
               categories={categories}
               onClick={closeCategoryModal}
-              className={"px-2"}
+              className={"px-2 hover:underline"}
             />
 
             <div className="py-2 hidden xl:block">
@@ -43,10 +46,14 @@ function CategoryModal() {
 
             <span className="xl:hidden px-2">-</span>
             <div className="px-2">
-              <a href="#discounts">Featured</a>
+              <a href="#discounts" className="hover:underline">
+                Featured
+              </a>
             </div>
             <div className="px-2">
-              <a href="#discounts">Discounts</a>
+              <a href="#discounts" className="hover:underline">
+                Discounts
+              </a>
             </div>
           </div>
         </div>

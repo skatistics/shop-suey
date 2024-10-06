@@ -33,7 +33,7 @@ function FloatingDarkModeToggle() {
         {theme === "dark" && (
           <button
             onClick={setTheme}
-            className=" p-3 text-ct-1F331F dark:text-ct-D9E8D9 bg-[#00ff3770] rounded-full "
+            className=" p-3 text-ct-D9E8D9 bg-ct-222824 rounded-full dark:border-ct-0B0D0C dark:border-2"
             type="button"
           >
             <FiSun className="text-2xl" />

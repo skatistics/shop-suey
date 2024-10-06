@@ -31,7 +31,7 @@ function NavBar({ setSearch }) {
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center ">
           <button onClick={() => toggleCartList()} className="relative">
-            <IoCart className="size-[30px] text-ct-191819 dark:text-ct-5D985E" />
+            <IoCart className="size-[30px] text-ct-191819 dark:text-ct-base-67A770" />
             <div className="text-center z-10 bg-ct-base-67A770 rounded-full -top-1 text-sm -right-2 size-5 absolute">
               {totalCount}
             </div>

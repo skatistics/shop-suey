@@ -43,12 +43,12 @@ function CartListModal() {
       <Modal
         id="cartlist-modal"
         className={
-          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-ct-F2F7F2 dark:bg-gray-600  flex-col rounded-tl-sm"
+          "h-[calc(100%-80px)] w-full sm:w-72 origin-right scale-x-0 right-0 transition-all duration-500 top-[80px] bg-ct-F2F7F2 dark:bg-ct-222824 flex-col rounded-tl-sm"
         }
       >
         <div className="h-[calc(100%-64px)] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit rounded-tl-md">
           {!cartList.length > 0 && (
-            <div className="text-ct-191819 font-medium text-center pt-8">
+            <div className="text-ct-191819 dark:text-ct-F2F7F2 font-medium text-center pt-8">
               Cart is Empty 😕 Buy something!
             </div>
           )}
