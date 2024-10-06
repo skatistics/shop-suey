@@ -4,25 +4,15 @@ import { useParams } from "react-router-dom";
 import { CartContext } from "../components/contexts/CartContextProvider";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
+import { ProductContext } from "../components/contexts/ProductContextProvider";
 
 function ProductPage() {
   const addToCart = useContext(CartContext).addToCart;
   const [isFetching, setIsFetching] = useState(true);
-  const [products, setProducts] = useState([]);
   const [product, setProduct] = useState({});
   const { productId } = useParams();
-  const formatter = new Intl.NumberFormat("tl-PH", {
-    style: "currency",
-    currency: "PHP",
-  });
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products?limit=150")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products);
-      });
-  }, []);
+  const formatPHP = useContext(ProductContext).formatPHP;
+  const products = useContext(ProductContext).products;
 
   useEffect(() => {
     const id = parseInt(productId);
@@ -54,7 +44,7 @@ function ProductPage() {
 
             <div className="flex items-center bg-red-200 h-1/3">
               <div className="text-3xl font-bold">
-                {formatter.format(product.price * 50)}
+                {formatPHP(product.price)}
               </div>
 
               <div className="mx-5 text-xl font-bold border-4 p-2">
