@@ -24,9 +24,8 @@ export default function LeftSection({ categories }) {
           <hr className="border-ct-black-19191A dark:border-ct-white-FEFCFF" />
         </div>
 
-        <span className="xl:hidden px-2">-</span>
         <div className="px-2">
-          <a href="#discounts" className="hover:underline">
+          <a href="#banner-section" className="hover:underline">
             Featured
           </a>
         </div>

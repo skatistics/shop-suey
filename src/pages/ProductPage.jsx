@@ -49,7 +49,7 @@ function ProductPage() {
               <div className="text-3xl font-bold">
                 {formatPHP(product.price)}
               </div>
-              <Ratings rating={2} starSize={20} />
+              <Ratings rating={4.5} starSize={20} />
               <div className="text-xl">{(2).toFixed(1)}</div>
             </div>
 
