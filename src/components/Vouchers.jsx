@@ -1,4 +1,5 @@
 import React from "react";
+import { openPaymentOptionsModal } from "./modals/PaymentOptionsModal";
 
 export default function Vouchers({ className }) {
   return (
