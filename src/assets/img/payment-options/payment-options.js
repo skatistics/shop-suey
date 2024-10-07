@@ -1,0 +1,13 @@
+export { default as Billease } from "./billease.svg";
+export { default as BPI } from "./bpi.svg";
+export { default as Cebuana } from "./cebuana.svg";
+export { default as Gcash } from "./gcash.svg";
+export { default as GrabPay } from "./grabpay.svg";
+export { default as Lazada } from "./lazada.svg";
+export { default as Mastercard } from "./mastercard.svg";
+export { default as Palawan } from "./palawan.svg";
+export { default as Maya } from "./paymaya.svg";
+export { default as Paypal } from "./paypal.svg";
+export { default as SevenEleven } from "./seveneleven.svg";
+export { default as Shopee } from "./shopee.svg";
+export { default as Visa } from "./visa.svg";

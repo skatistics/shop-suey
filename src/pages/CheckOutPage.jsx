@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import Visa from "../assets/294654_visa_icon.svg";
-import Mastercard from "../assets/mastercard.svg";
-import Paypal from "../assets/paypal.svg";
-import Maya from "../assets/Maya.svg";
-import Gcash from "../assets/gcash.svg";
+
 import { CartContext } from "../components/contexts/CartContextProvider";
 import { ProductContext } from "../components/contexts/ProductContextProvider";
+
+import {
+  Gcash,
+  Mastercard,
+  Maya,
+  Paypal,
+  Visa,
+} from "../assets/img/payment-options/payment-options";
 
 function CheckOutPage() {
   const totalAmount = useContext(CartContext).totalAmount;
