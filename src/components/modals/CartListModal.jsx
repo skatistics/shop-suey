@@ -63,7 +63,10 @@ function CartListModal() {
           <div className="w-full  bg-ct-5D985E text-center">
             <button
               onClick={() => navigate("/checkout")}
-              className=" text-ct-F2F7F2 bg-ct-5D985E px-4 py-2 hover:underline"
+              className={
+                " text-ct-F2F7F2 bg-ct-5D985E px-4 py-2 hover:underline" +
+                (cartList.length > 0 ? " " : " hidden")
+              }
             >
               Check Out
             </button>
