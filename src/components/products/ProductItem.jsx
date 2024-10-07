@@ -17,7 +17,12 @@ function ProductItem({ product }) {
   }
 
   return (
-    <div className="p-4 rounded-xl hover:shadow-lg text-ct-080D08 bg-ct-F2F7F2 dark:bg-ct-222824 dark:text-ct-F2F7F2 group">
+    <div
+      className="p-4 rounded-xl hover:shadow-lg text-ct-080D08 bg-ct-F2F7F2 dark:bg-ct-222824 dark:text-ct-F2F7F2 group"
+      onDragStart={(e) => {
+        e.preventDefault();
+      }}
+    >
       <div className="flex justify-center">
         <img
           src={product.image}

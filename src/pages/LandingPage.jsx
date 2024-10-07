@@ -10,6 +10,7 @@ import ProductSection from "../components/sections/ProductSection";
 import FloatingCategoryToggle from "../components/floating/FloatingCategoryToggle";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
+import ProductsMultiCarousel from "../components/products/ProductsMultiCarousel";
 
 function LandingPage() {
   const products = useContext(ProductContext).products;
@@ -41,7 +42,7 @@ function LandingPage() {
       >
         Discounted Products
       </div>
-      <ProductList products={discountedProducts} />
+      <ProductsMultiCarousel products={discountedProducts} />
       <ProductSection categories={categories} products={products} />
       <Footer />
     </div>
