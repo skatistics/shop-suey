@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 import CheckOutPage from "./pages/CheckOutPage";
 import SearchResultsModal from "./components/modals/SearchResultsModal";
 import ProductContextProvider from "./components/contexts/ProductContextProvider";
+import PaymentOptionsModal from "./components/modals/PaymentOptionsModal";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <NavBar />
               <SearchResultsModal />
               <LoginSignupModal />
+              <PaymentOptionsModal />
               <BackToTopButton />
               <FloatingDarkModeToggle />
               <Routes>
