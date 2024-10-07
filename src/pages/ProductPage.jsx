@@ -5,6 +5,7 @@ import { CartContext } from "../components/contexts/CartContextProvider";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
 import { ProductContext } from "../components/contexts/ProductContextProvider";
+import { useNavigate } from "react-router-dom";
 
 function ProductPage() {
   const addToCart = useContext(CartContext).addToCart;
@@ -13,6 +14,8 @@ function ProductPage() {
   const { productId } = useParams();
   const formatPHP = useContext(ProductContext).formatPHP;
   const products = useContext(ProductContext).products;
+  const cartList = useContext(CartContext).cartList;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const id = parseInt(productId);
@@ -53,14 +56,20 @@ function ProductPage() {
             </div>
 
             <div className="bg-blue-200 h-1/3">
-              <button className="text-2xl border-2 border-black rounded-md">
-                Check Out
-              </button>
               <button
-                className="text-2xl h-10 px-2 rounded-md border-2 border-black"
+                className="mt-4 ml-3 h-10 mr-3 py-1 px-2 mb-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2"
                 onClick={() => addToCart(product)}
               >
-                Add to cart
+                Add to Cart
+              </button>
+              <button
+                onClick={() => navigate("/checkout")}
+                className={
+                  "mt-4 ml-4 h-10 py-1 px-2 mb-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2 " +
+                  (cartList.length > 0 ? " " : " hidden")
+                }
+              >
+                Check Out
               </button>
             </div>
           </div>
