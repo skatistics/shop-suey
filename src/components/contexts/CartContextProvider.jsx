@@ -8,7 +8,6 @@ export default function CartContextProvider({ children }) {
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
-  const [checkOutStatus, setCheckOutStatus] = useState(false);
 
   useEffect(() => {
     let tempAmount = 0;
@@ -70,7 +69,6 @@ export default function CartContextProvider({ children }) {
 
   function checkOut() {
     setCartList([]);
-    setCheckOutStatus(true);
     navigate("/");
     setTimeout(() => window.alert("Order Successful!"), 500);
   }
@@ -86,8 +84,6 @@ export default function CartContextProvider({ children }) {
         totalAmount,
         totalCount,
         checkOut,
-        checkOutStatus,
-        setCheckOutStatus,
       }}
     >
       {children}

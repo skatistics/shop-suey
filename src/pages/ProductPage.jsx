@@ -6,6 +6,7 @@ import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
 import { ProductContext } from "../components/contexts/ProductContextProvider";
 import { useNavigate } from "react-router-dom";
+import Ratings from "../components/Ratings";
 
 function ProductPage() {
   const addToCart = useContext(CartContext).addToCart;
@@ -35,24 +36,21 @@ function ProductPage() {
       <div className="lg:container mx-auto">
         <CartListModal />
         <FloatingCartList />
-        <div className="lg:flex p-5 bg-ct-F2F7F2">
-          <div className="lg:size-[600px] bg-ct-D9E8D9 flex items-center p-2">
+        <div className="lg:flex m-5 p-5 space-x-5 space-y-5 rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
+          <div className="lg:size-[600px] flex items-center">
             <img src={product.image} alt="" />
           </div>
-          <div className="lg:w-2/3 px-5 bg-yellow-200">
-            <div className="text-3xl font-bold bg-green-200 h-1/3 space-y-2">
+          <div className="lg:w-2/3">
+            <div className="text-3xl font-bold bg-green-200 space-y-2">
               <div>{product.title}</div>
-              <div className="text-2xl">Brand: {product.brand}</div>
             </div>
 
-            <div className="flex items-center bg-red-200 h-1/3">
+            <div className="flex items-center bg-red-200 space-x-2">
               <div className="text-3xl font-bold">
                 {formatPHP(product.price)}
               </div>
-
-              <div className="mx-5 text-xl font-bold border-4 p-2">
-                Category: {product.category}
-              </div>
+              <Ratings rating={4.5} starSize={20} />
+              <div className="text-xl">{(2).toFixed(1)}</div>
             </div>
 
             <div className="bg-blue-200 h-1/3">
