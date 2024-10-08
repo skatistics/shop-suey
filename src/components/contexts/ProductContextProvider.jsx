@@ -22,11 +22,11 @@ export default function ProductContextProvider({ children }) {
   useEffect(() => {
     fetch(
       "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
-    ).then((res) =>
-      res.json().then((data) => {
+    )
+      .then((res) => res.json())
+      .then((data) => {
         setConversion(data["usd"]["php"]);
-      })
-    );
+      });
   }, []);
 
   useEffect(() => {

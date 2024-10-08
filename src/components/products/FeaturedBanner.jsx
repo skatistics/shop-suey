@@ -73,7 +73,7 @@ function FeaturedBanner() {
             onClick={() => setCurrentIndex(slideIndex)}
             className="text-2xl cursor-pointer hover:text-ct-white-FEFCFF"
           >
-            <RxDotFilled />
+            <RxDotFilled className="text-ct-0B0D0C dark:text-ct-F2F7F2" />
           </div>
         ))}
       </div>

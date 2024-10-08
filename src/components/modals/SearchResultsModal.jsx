@@ -1,19 +1,25 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import { Modal, hideModal, openModal } from "./CustomModal";
-import { ProductContext } from "../contexts/ProductContextProvider";
 import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
 import SearchList from "../SearchList";
 
-export function openSearchResultsModal(input) {
+export function openSearchResultsModal() {
+  const full = document.getElementById("search-results-modal-full");
   openModal("search-results-modal");
+  if (full) {
+    openModal("search-results-modal-full");
+  }
 }
 
 export function closeSearchResultsModal() {
+  const full = document.getElementById("search-results-modal-full");
   hideModal("search-results-modal");
+  if (full) {
+    openModal("search-results-modal-full");
+  }
 }
 
-export default function SearchResultsModal() {
-  const searchedProducts = useContext(ProductContext).searchedProducts;
+export default function SearchResultsModal({ full = false }) {
   const isTouch = useContext(SystemPreferencesContext).isTouch;
   const [mouseDown, setMouseDown] = useState(false);
   const [startY, setStartY] = useState(0);
@@ -46,8 +52,11 @@ export default function SearchResultsModal() {
   };
 
   return (
-    <div className={searchedProducts.length > 0 ? "" : "hidden"}>
-      <Modal id="search-results-modal" className={"md:w-[400px] h-auto mt-5"}>
+    <div className={full ? "md:hidden" : "hidden md:block"}>
+      <Modal
+        id={"search-results-modal" + (full ? "-full" : "")}
+        className={"h-auto top-14" + (full ? " w-full" : " w-[400px]")}
+      >
         {isTouch ? (
           <SearchList ref={sliderRef} />
         ) : (
