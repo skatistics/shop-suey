@@ -37,7 +37,7 @@ function ProductList({ products, category = "" }) {
       <div className="flex justify-center items-center">
         <button
           className={
-            "text-center font-medium text-ct-191A1B underline hover:text-ct-base-67A770 dark:text-ct-F2F7F2 dark:hover:text-ct-base-67A770" +
+            "mt-2 text-center font-medium text-ct-191A1B underline hover:text-ct-base-67A770 dark:text-ct-F2F7F2 dark:hover:text-ct-base-67A770" +
             (loadMore ? "" : " hidden")
           }
           onClick={() => loadMoreProducts()}

@@ -3,15 +3,9 @@ import ProductItem from "./ProductItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-export default function ProductsMultiCarousel({ id, products }) {
+export default function ProductsMultiCarousel({ products }) {
   const [arrowShow, setArrowShow] = useState(true);
 
-  function disableArrows() {
-    setArrowShow(false);
-  }
-  function enableArrows() {
-    setArrowShow(true);
-  }
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
@@ -32,7 +26,7 @@ export default function ProductsMultiCarousel({ id, products }) {
   };
 
   return (
-    <div className="md:container mx-auto" id={id}>
+    <div className="md:container mx-auto">
       <Carousel
         responsive={responsive}
         swipeable={true}
@@ -45,9 +39,9 @@ export default function ProductsMultiCarousel({ id, products }) {
             <div
               key={product.id}
               className="p-2"
-              onMouseDown={disableArrows}
-              onMouseLeave={enableArrows}
-              onMouseUp={enableArrows}
+              onMouseDown={() => setArrowShow(false)}
+              onMouseLeave={() => setArrowShow(true)}
+              onMouseUp={() => setArrowShow(true)}
             >
               <ProductItem product={product} />
             </div>

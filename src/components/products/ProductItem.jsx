@@ -34,12 +34,27 @@ function ProductItem({ product }) {
           className="size-80 rounded-xl"
         />
       </div>
-      <div className="h-14">
+      <div className="h-14 py-2">
         <div className="line-clamp-2">{product.title}</div>
       </div>
 
-      <div className="flex justify-end text-2xl font-bold">
-        {formatPHP(product.price)}
+      <div className="py-2">
+        {product.discount != undefined ? (
+          <div className="flex flex-col justify-end items-end h-14">
+            <div className="line-through opacity-60">
+              {formatPHP(product.price)}
+            </div>
+            <div className="text-2xl font-bold">
+              {formatPHP(
+                product.price - product.price * (product.discount / 100)
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col justify-end items-end h-14">
+            <div className="text-2xl font-bold">{formatPHP(product.price)}</div>
+          </div>
+        )}
       </div>
 
       <div className="flex px-2 py-1 mt-1 space-x-2 justify-center items-center ">
