@@ -12,7 +12,6 @@ import SystemPreferencesContextProvider from "./components/contexts/SystemPrefer
 import NavBar from "./components/NavBar";
 import CheckOutPage from "./pages/CheckOutPage";
 import ProductContextProvider from "./components/contexts/ProductContextProvider";
-import PaymentOptionsModal from "./components/modals/PaymentOptionsModal";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
             <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-300 dark:bg-ct-0B0D0C">
               <NavBar />
               <LoginSignupModal />
-              <PaymentOptionsModal />
               <BackToTopButton />
               <FloatingDarkModeToggle />
               <Routes>

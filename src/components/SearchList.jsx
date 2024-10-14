@@ -15,7 +15,7 @@ function SearchList(
     <div
       id="search-list"
       className={
-        "max-h-[480px] px-2 bg-ct-F2F7F2 text-ct-0B0D0C dark:bg-ct-45634F dark:text-ct-F2F7F2 mt-2 shadow-lg" +
+        "max-h-[480px] px-2 bg-ct-F2F7F2 text-ct-0B0D0C dark:bg-ct-45634F dark:text-ct-F2F7F2 mt-2 shadow-lg select-none cursor-grab active:cursor-grabbing" +
         (isTouch ? " overflow-auto" : " overflow-hidden")
       }
       ref={ref}

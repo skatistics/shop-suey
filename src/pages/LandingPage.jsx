@@ -12,6 +12,7 @@ import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
 import ProductsMultiCarousel from "../components/products/ProductsMultiCarousel";
 import SearchResultsModal from "../components/modals/SearchResultsModal";
+import PaymentOptionsModal from "../components/modals/PaymentOptionsModal";
 
 function LandingPage() {
   const products = useContext(ProductContext).products;
