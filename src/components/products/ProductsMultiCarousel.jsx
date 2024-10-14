@@ -26,7 +26,7 @@ export default function ProductsMultiCarousel({ products }) {
   };
 
   return (
-    <div className="md:container mx-auto">
+    <div className="md:container mx-auto select-none cursor-grab active:cursor-grabbing">
       <Carousel
         responsive={responsive}
         swipeable={true}

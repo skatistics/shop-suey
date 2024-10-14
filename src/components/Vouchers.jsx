@@ -1,5 +1,9 @@
 import React from "react";
-import { openPaymentOptionsModal } from "./modals/PaymentOptionsModal";
+import {
+  openPaymentOptionsModal,
+  closePaymentOptionsModal,
+} from "./modals/PaymentOptionsModal";
+import PaymentOptionsModal from "./modals/PaymentOptionsModal";
 
 export default function Vouchers({ className }) {
   return (
@@ -9,9 +13,13 @@ export default function Vouchers({ className }) {
     >
       <div className="px-2">Vouchers</div>
       <div className="px-2">
-        <button onClick={() => openPaymentOptionsModal()}>
+        <div
+          onMouseOver={() => openPaymentOptionsModal("payment-options-modal")}
+          onMouseOut={() => closePaymentOptionsModal("payment-options-modal")}
+        >
           Payment Options
-        </button>
+          <PaymentOptionsModal />
+        </div>
       </div>
     </div>
   );
