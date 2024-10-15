@@ -29,9 +29,12 @@ export function closePaymentOptionsModal() {
 function PaymentOptionsModal() {
   return (
     <div className="relative">
-      <Modal id="payment-options-modal" className={"absolute top-0"}>
-        <div className="bg-ct-A6C9A7 flex justify-center items-center">
-          <div className="flex flex-wrap justify-center items-center">
+      <Modal
+        id="payment-options-modal"
+        className={"absolute top-0 cursor-default"}
+      >
+        <div className="bg-ct-A6C9A7 dark:bg-ct-2F4C2F flex justify-center items-center ">
+          <div className="flex flex-wrap justify-center items-center ">
             <img src={Billease} alt="Billease" className="size-[40px] mx-2" />
             <img src={BPI} alt="BPI" className="size-[40px] mx-2" />
             <img src={Cebuana} alt="Cebuana" className="size-[40px] mx-2" />

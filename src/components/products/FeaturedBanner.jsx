@@ -1,52 +1,76 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import {
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+  Banner5,
+} from "../../assets/img/banner/banner.js";
 
 function FeaturedBanner() {
   const slides = [
     {
-      url: "https://images.acer.com/is/image/acer/Soar%20in%20Solitude_1920x1080?$responsive$&bfc=off",
+      url: Banner1,
     },
     {
-      url: "https://images.acer.com/is/image/acer/2023_Predator_Alternative_Wallpaper_Final%20Destination_1920x1080?$responsive$&bfc=off",
+      url: Banner2,
     },
     {
-      url: "https://images.acer.com/is/image/acer/Our%20Last%20Hope_1920x1080?$responsive$&bfc=off",
+      url: Banner3,
+    },
+
+    {
+      url: Banner4,
     },
     {
-      url: "https://images.acer.com/is/image/acer/2023_Predator_Alternative_Wallpaper_Apex%20of%20an%20Empire_1920x1080?$responsive$&bfc=off",
-    },
-    {
-      url: "https://images.acer.com/is/image/acer/2023_Predator_Wallpaper_Seek%20the%20Stars_1920x1080?$responsive$&bfc=off",
+      url: Banner5,
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
+  const currentIndexRef = useRef(0);
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
       nextSlide();
     }, 6000);
     return () => clearInterval(slideInterval);
-  }, [currentIndex]);
+  }, []);
+
+  const nextSlide = () => {
+    currentIndexRef.current = (currentIndexRef.current + 1) % slides.length;
+    setCurrentIndex(currentIndexRef.current);
+  };
+  // const nextSlide = () => {
+  //   const isLastSlide = currentIndex === slides.length - 1;
+  //   const newIndex = isLastSlide ? 0 : currentIndex + 1;
+  //   setCurrentIndex(newIndex);
+  // };
+  const prevSlide = () => {
+    currentIndexRef.current =
+      (currentIndexRef.current - 1 + slides.length) % slides.length;
+    setCurrentIndex(currentIndexRef.current);
+  };
+  // const prevSlide = () => {
+  //   const isFirstSlide = currentIndex === 0;
+  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  // };
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      nextSlide();
+    }, 6000);
+    return () => clearInterval(slideInterval);
+  }, []);
 
   return (
-    <div className="w-full pt-14 pb-16 px-5 xl:px-2 group">
+    <div className="w-full h-[700px] pt-14 pb-16 px-5 xl:px-2 group">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className="h-[780px] rounded-2xl bg-center bg-cover duration-500"
+        className=" w-full h-full rounded-2xl bg-center bg-cover duration-500"
       >
         <div className="flex items-center h-full">
           {/**left arrow */}
@@ -55,9 +79,9 @@ function FeaturedBanner() {
           </div>
           {/**background text */}
           <div className="w-[calc(100%-96px)]">
-            <div className="text-white text-center w-[80%] bg-red-700 text-6xl font-black break-words mx-auto h-[300px]">
+            {/* <div className="text-white text-center w-[80%] bg-red-700 text-6xl font-black break-words mx-auto h-[300px]">
               <span>HALLOWEEN SALE</span>
-            </div>
+            </div> */}
           </div>
           {/**right arrow */}
           <div className="opacity-0 group-hover:opacity-100 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer w-12">
