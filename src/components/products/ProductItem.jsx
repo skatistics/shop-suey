@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContextProvider";
 import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
 import { ProductContext } from "../contexts/ProductContextProvider";
+import { memo } from "react";
 
 function ProductItem({ product }) {
   const navigate = useNavigate();
