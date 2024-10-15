@@ -16,6 +16,7 @@ export default function Vouchers({ className }) {
         <div
           onMouseOver={() => openPaymentOptionsModal("payment-options-modal")}
           onMouseOut={() => closePaymentOptionsModal("payment-options-modal")}
+          className="cursor-pointer"
         >
           Payment Options
           <PaymentOptionsModal />

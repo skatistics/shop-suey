@@ -33,18 +33,18 @@ function ProductPage() {
 
   if (product) {
     return (
-      <div className="lg:container mx-auto">
+      <div className="sm:container mx-auto">
         <CartListModal />
         <FloatingCartList />
         <div className="lg:flex m-5 p-5 space-x-5 space-y-5 rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
-          <div className="lg:size-[600px] flex items-center">
+          <div className=" flex items-center">
             <img
               src={product.image}
               alt="Product Image"
               className="object-contain lg:size-[600px]"
             />
           </div>
-          <div className="lg:w-2/3">
+          <div className="lg:w-2/3 space-y-2">
             <div className="text-3xl font-bold bg-green-200 space-y-2">
               <div>{product.title}</div>
             </div>
