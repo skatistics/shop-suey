@@ -4,8 +4,12 @@ import { useState } from "react";
 function ProductList({ products, category = "" }) {
   const [productLimit, setProductLimit] = useState(12);
   const [loadMore, setLoadMore] = useState(true);
-  let filteredProducts = products;
-  const filteredProductsLength = products.length;
+  let filteredProducts =
+    category != ""
+      ? products.filter((product) => product.category == category)
+      : products;
+
+  const filteredProductsLength = filteredProducts.length;
 
   function loadMoreProducts() {
     const tempLimit = productLimit + 12;
@@ -15,12 +19,6 @@ function ProductList({ products, category = "" }) {
       setProductLimit(filteredProductsLength);
       setLoadMore(false);
     }
-  }
-
-  if (category != "") {
-    filteredProducts = products.filter(
-      (product) => product.category == category
-    );
   }
 
   const limitedProducts = filteredProducts.filter(

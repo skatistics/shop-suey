@@ -1,7 +1,8 @@
 import React from "react";
 import Categories from "../Categories";
-
-export default function LeftSection({ categories }) {
+import { useProductContext } from "../contexts/ProductContextProvider";
+export default function LeftSection() {
+  const { categories } = useProductContext();
   return (
     <div
       id="left-section"

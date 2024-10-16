@@ -42,16 +42,17 @@ function CartListItem({ item, index }) {
           Remove
         </button>
         <div className="flex justify-center items-center pb-4 pr-2 space-x-2 font-medium">
-          <button
-            onClick={() => {
-              decreaseItemCount(item, index);
-            }}
-            className={
-              item.count < 2 ? "hidden" : "text-ct-222824 dark:text-ct-F2F7F2"
-            }
-          >
-            <AiOutlineMinus />
-          </button>
+          {item.count < 2 && (
+            <button
+              onClick={() => {
+                decreaseItemCount(item, index);
+              }}
+              className="text-ct-222824 dark:text-ct-F2F7F2"
+            >
+              <AiOutlineMinus />
+            </button>
+          )}
+
           <span className="text-ct-222824 dark:text-ct-F2F7F2">
             {item.count}
           </span>

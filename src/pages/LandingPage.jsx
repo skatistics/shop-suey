@@ -9,11 +9,8 @@ import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
 import ProductsMultiCarousel from "../components/products/ProductsMultiCarousel";
 import SearchResultsModal from "../components/modals/SearchResultsModal";
-import { useProductContext } from "../components/contexts/ProductContextProvider";
 
 function LandingPage() {
-  const { products, discountedProducts, categories } = useProductContext();
-
   return (
     <div className="space-y-6">
       <div
@@ -21,7 +18,7 @@ function LandingPage() {
         id="banner-section"
       >
         <div className="w-full xl:w-[15%] flex justify-center items-center">
-          <LeftSection categories={categories} />
+          <LeftSection />
         </div>
         <div className="w-full xl:w-[70%] flex justify-center items-center">
           <FeaturedBanner />
@@ -41,8 +38,8 @@ function LandingPage() {
       >
         Discounted Products
       </div>
-      <ProductsMultiCarousel products={discountedProducts} />
-      <ProductSection categories={categories} products={products} />
+      <ProductsMultiCarousel />
+      <ProductSection />
       <Footer />
     </div>
   );

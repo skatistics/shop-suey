@@ -1,11 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import ProductItem from "./ProductItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useProductContext } from "../contexts/ProductContextProvider";
 
-export default function ProductsMultiCarousel({ products }) {
+function ProductsMultiCarousel() {
+  const { discountedProducts } = useProductContext();
   const [arrowShow, setArrowShow] = useState(true);
+  const [index, setIndex] = useState(8);
+  const [loading, setLoading] = useState(false);
 
+  const temp = useMemo(() => {
+    return index >= discountedProducts.length
+      ? discountedProducts
+      : discountedProducts.slice(0, index);
+  });
+
+  function loadMoreProducts() {
+    setIndex(index + 4);
+    setLoading(false);
+    console.log("done loading");
+  }
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
@@ -26,15 +41,37 @@ export default function ProductsMultiCarousel({ products }) {
   };
 
   return (
-    <div className="md:container mx-auto select-none cursor-grab active:cursor-grabbing">
+    <div
+      className={
+        "md:container mx-auto select-none  active:cursor-grabbing" +
+        (loading ? " cursor-wait" : " cursor-grab")
+      }
+      disabled={loading}
+    >
+      <div className="bg-red-300">{temp.length}</div>
       <Carousel
+        afterChange={(previousSlide, { currentSlide, onMove }) => {
+          if (currentSlide > index - 5) {
+            if (!(index >= discountedProducts.length)) {
+              loadMoreProducts();
+            }
+          }
+        }}
+        beforeChange={(nextSlide, { currentSlide, onMove }) => {
+          if (nextSlide > index - 5) {
+            if (!(index >= discountedProducts.length)) {
+              setLoading(true);
+              console.log("loading");
+            }
+          }
+        }}
         responsive={responsive}
         swipeable={true}
         draggable={true}
         arrows={arrowShow}
         transitionDuration={300}
       >
-        {products.map((product) => {
+        {temp.map((product) => {
           return (
             <div
               key={product.id}
@@ -51,3 +88,5 @@ export default function ProductsMultiCarousel({ products }) {
     </div>
   );
 }
+
+export default ProductsMultiCarousel;

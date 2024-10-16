@@ -70,6 +70,8 @@ export default function CartContextProvider({ children }) {
 
   function checkOut() {
     setCartList([]);
+    setTotalCount(0);
+    setTotalAmount(0);
     navigate("/");
     setTimeout(() => window.alert("Order Successful!"), 500);
   }
