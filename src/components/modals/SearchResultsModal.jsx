@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import { Modal, hideModal, openModal } from "./CustomModal";
-import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
+import { useSystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
 import SearchList from "../SearchList";
 
 export function openSearchResultsModal() {
@@ -20,7 +20,7 @@ export function closeSearchResultsModal() {
 }
 
 export default function SearchResultsModal({ full = false }) {
-  const isTouch = useContext(SystemPreferencesContext).isTouch;
+  const { isTouch } = useSystemPreferencesContext();
   const [mouseDown, setMouseDown] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
@@ -57,17 +57,15 @@ export default function SearchResultsModal({ full = false }) {
         id={"search-results-modal" + (full ? "-full" : "")}
         className={"h-auto top-14" + (full ? " w-full" : " w-[400px]")}
       >
-        {isTouch ? (
-          <SearchList ref={sliderRef} />
-        ) : (
-          <SearchList
-            ref={sliderRef}
-            onMouseDown={startDragging}
-            onMouseMove={moveInDrag}
-            onMouseLeave={stopDragging}
-            onMouseUp={stopDragging}
-          />
-        )}
+        <SearchList
+          ref={sliderRef}
+          {...(!isTouch && {
+            onMouseDown: startDragging,
+            onMouseMove: moveInDrag,
+            onMouseLeave: stopDragging,
+            onMouseUp: stopDragging,
+          })}
+        />
       </Modal>
     </div>
   );

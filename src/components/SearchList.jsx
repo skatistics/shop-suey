@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingBag } from "react-icons/fa";
-import { SystemPreferencesContext } from "./contexts/SystemPreferencesContextProvider";
-import { ProductContext } from "./contexts/ProductContextProvider";
+import { useSystemPreferencesContext } from "./contexts/SystemPreferencesContextProvider";
+import { useSearchContext } from "./contexts/SearchContextProvider";
 
 function SearchList(
   { onMouseDown, onMouseMove, onMouseUp, onMouseLeave },
   ref
 ) {
-  const searchedProducts = useContext(ProductContext).searchedProducts;
-  const isTouch = useContext(SystemPreferencesContext).isTouch;
+  const { searchedProducts } = useSearchContext();
+  const { isTouch } = useSystemPreferencesContext();
   const navigate = useNavigate();
   return (
     <div
@@ -54,4 +54,4 @@ function SearchList(
   );
 }
 
-export default React.forwardRef(SearchList);
+export default forwardRef(SearchList);

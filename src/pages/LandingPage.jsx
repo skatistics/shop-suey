@@ -1,23 +1,19 @@
-import { useState, useEffect, useContext } from "react";
-import ProductList from "../components/products/ProductList";
 import Footer from "../components/Footer";
 import FeaturedBanner from "../components/products/FeaturedBanner";
 import CategoryModal from "../components/modals/CategoryModal";
 import LeftSection from "../components/sections/LeftSection";
 import RightSection from "../components/sections/RightSection";
-import { ProductContext } from "../components/contexts/ProductContextProvider";
 import ProductSection from "../components/sections/ProductSection";
 import FloatingCategoryToggle from "../components/floating/FloatingCategoryToggle";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
 import ProductsMultiCarousel from "../components/products/ProductsMultiCarousel";
 import SearchResultsModal from "../components/modals/SearchResultsModal";
-import PaymentOptionsModal from "../components/modals/PaymentOptionsModal";
+import { useProductContext } from "../components/contexts/ProductContextProvider";
 
 function LandingPage() {
-  const products = useContext(ProductContext).products;
-  const discountedProducts = useContext(ProductContext).discountedProducts;
-  const categories = useContext(ProductContext).categories;
+  const { products, discountedProducts, categories } = useProductContext();
+
   return (
     <div className="space-y-6">
       <div

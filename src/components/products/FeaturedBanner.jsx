@@ -70,7 +70,7 @@ function FeaturedBanner() {
     <div className="w-full h-[700px] pt-14 pb-16 px-5 xl:px-2 group">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className=" w-full h-full rounded-2xl bg-center bg-cover duration-500"
+        className=" w-full h-full rounded-2xl bg-center bg-contain bg-no-repeat duration-500"
       >
         <div className="flex items-center h-full">
           {/**left arrow */}

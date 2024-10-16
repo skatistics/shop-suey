@@ -1,7 +1,15 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import { createContext, useState } from "react";
-export const CartContext = createContext([]);
+import { useContext, createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+const CartContext = createContext([]);
+
+export function useCartContext() {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error("useCartContext must be used within a useCartContext");
+  }
+  return context;
+}
 
 export default function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
@@ -9,62 +17,55 @@ export default function CartContextProvider({ children }) {
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    let tempAmount = 0;
-    let tempCount = 0;
-    cartList.forEach((item) => {
-      tempAmount += item.price * item.count;
-      tempCount += item.count;
-    });
-    setTotalAmount(tempAmount);
-    setTotalCount(tempCount);
-  }, [cartList]);
-
   function addToCart(product) {
-    const duplicate = cartList.find((item) => item.id === product.id);
-
-    if (duplicate) {
-      increaseItemCount(product.id);
-    } else {
-      const tempcart = [...cartList];
-      tempcart.push({ ...product, count: 1 });
-      setCartList(tempcart);
+    const duplicateIndex = cartList.findIndex((item) => item.id === product.id);
+    if (duplicateIndex > -1) {
+      const item = cartList[duplicateIndex];
+      increaseItemCount(item, duplicateIndex);
+      return;
     }
+
+    const tempcart = [...cartList];
+    tempcart.push({ ...product, count: 1 });
+    setCartList(tempcart);
+    addToTotal(1, product.price);
   }
 
-  function decreaseItemCount(id) {
-    const tempcart = [...cartList];
-    const item = cartList.find((item) => item.id === id);
+  function decreaseItemCount(item, index) {
     if (item.count - 1 < 1) {
-      removeFromCart(id);
+      removeFromCart(item.id);
+      return;
     }
 
-    const finalTempcart = tempcart.map((item) => {
-      if (item.id == id) {
-        item = { ...item, count: item.count - 1 };
-      }
-      return item;
-    });
-
-    setCartList(finalTempcart);
-  }
-  function increaseItemCount(id) {
     const tempcart = [...cartList];
+    tempcart[index] = { ...item, count: item.count - 1 };
+    setCartList(tempcart);
+    deductToTotal(1, item.price);
+  }
+  function increaseItemCount(item, index) {
+    const tempcart = [...cartList];
+    tempcart[index] = { ...item, count: item.count + 1 };
 
-    const finalTempcart = tempcart.map((item) => {
-      if (item.id == id) {
-        item = { ...item, count: item.count + 1 };
-      }
-      return item;
-    });
-
-    setCartList(finalTempcart);
+    setCartList(tempcart);
+    addToTotal(1, item.price);
   }
 
-  function removeFromCart(id) {
+  function removeFromCart(index) {
     const removeCart = [...cartList];
-    const removeHandler = removeCart.filter((product) => product.id !== id);
-    setCartList(removeHandler);
+    const item = removeCart[index];
+    deductToTotal(item.count, item.count * item.price);
+    removeCart.splice(index, 1);
+    setCartList(removeCart);
+  }
+
+  function addToTotal(newCount, newAmount) {
+    setTotalCount((prev) => prev + newCount);
+    setTotalAmount((prev) => prev + newAmount);
+  }
+
+  function deductToTotal(newCount, newAmount) {
+    setTotalCount((prev) => prev - newCount);
+    setTotalAmount((prev) => prev - newAmount);
   }
 
   function checkOut() {

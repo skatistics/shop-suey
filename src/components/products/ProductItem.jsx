@@ -1,17 +1,15 @@
-import { useContext } from "react";
 import websiteLogo from "../../assets/logo/logo.png";
 import { IoCart } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../contexts/CartContextProvider";
-import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
-import { ProductContext } from "../contexts/ProductContextProvider";
+import { useCartContext } from "../contexts/CartContextProvider";
+import { useSystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
+import { useProductContext } from "../contexts/ProductContextProvider";
 
 function ProductItem({ product }) {
   const navigate = useNavigate();
-  const addToCart = useContext(CartContext).addToCart;
-  const isTouch = useContext(SystemPreferencesContext).isTouch;
-  const formatPHP = useContext(ProductContext).formatPHP;
-
+  const { addToCart } = useCartContext();
+  const { isTouch } = useSystemPreferencesContext();
+  const { formatPHP } = useProductContext();
   function onClickProduct() {
     navigate(`/products/${product.id}`);
   }

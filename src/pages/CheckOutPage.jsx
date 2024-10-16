@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
-
-import { CartContext } from "../components/contexts/CartContextProvider";
-import { ProductContext } from "../components/contexts/ProductContextProvider";
+import { useCartContext } from "../components/contexts/CartContextProvider";
+import { useProductContext } from "../components/contexts/ProductContextProvider";
 
 import {
   Billease,
@@ -20,11 +18,9 @@ import {
 } from "../assets/img/payment-options/payment-options.js";
 
 function CheckOutPage() {
-  const totalAmount = useContext(CartContext).totalAmount;
-  const cartList = useContext(CartContext).cartList;
-  const formatPHP = useContext(ProductContext).formatPHP;
+  const { formatPHP } = useProductContext();
+  const { totalAmount, cartList, checkOut } = useCartContext();
   const totalPrice = totalAmount + 40;
-  const checkOut = useContext(CartContext).checkOut;
   return (
     <>
       {/* xs: "375px",

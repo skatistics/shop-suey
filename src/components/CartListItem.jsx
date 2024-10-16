@@ -1,15 +1,13 @@
-import React, { useState, useContext } from "react";
 import Logo from "../assets/logo/logo.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { CartContext } from "./contexts/CartContextProvider";
 import { Link } from "react-router-dom";
-import { ProductContext } from "./contexts/ProductContextProvider";
+import { useCartContext } from "./contexts/CartContextProvider";
+import { useProductContext } from "./contexts/ProductContextProvider";
 
-function CartListItem({ item }) {
-  const removeFromCart = useContext(CartContext).removeFromCart;
-  const increaseItemCount = useContext(CartContext).increaseItemCount;
-  const decreaseItemCount = useContext(CartContext).decreaseItemCount;
-  const formatPHP = useContext(ProductContext).formatPHP;
+function CartListItem({ item, index }) {
+  const { removeFromCart, increaseItemCount, decreaseItemCount } =
+    useCartContext();
+  const { formatPHP } = useProductContext();
 
   return (
     <div className="px-3   shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)] group/remove">
@@ -38,7 +36,7 @@ function CartListItem({ item }) {
 
       <div className="flex justify-end items-center ">
         <button
-          onClick={() => removeFromCart(item.id)}
+          onClick={() => removeFromCart(index)}
           className="absolute opacity-0 scale-y-0 left-0 bg-ct-5D985E text-ct-F2F7F2 ml-3 mb-4 px-2 py-1 font-bold rounded-xl transition-transform duration-[400ms] group-hover/remove:opacity-100 group-hover/remove:scale-y-100"
         >
           Remove
@@ -46,7 +44,7 @@ function CartListItem({ item }) {
         <div className="flex justify-center items-center pb-4 pr-2 space-x-2 font-medium">
           <button
             onClick={() => {
-              decreaseItemCount(item.id);
+              decreaseItemCount(item, index);
             }}
             className={
               item.count < 2 ? "hidden" : "text-ct-222824 dark:text-ct-F2F7F2"
@@ -60,7 +58,7 @@ function CartListItem({ item }) {
           <button
             className="text-ct-222824 dark:text-ct-F2F7F2"
             onClick={() => {
-              increaseItemCount(item.id);
+              increaseItemCount(item, index);
             }}
           >
             <AiOutlinePlus />
