@@ -14,7 +14,6 @@ export function useProductContext() {
 }
 
 export default function ProductContextProvider({ children }) {
-  const [conversion, setConversion] = useState(0);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const discountedProducts = useMemo(
@@ -37,21 +36,20 @@ export default function ProductContextProvider({ children }) {
     )
       .then((res) => res.json())
       .then((data) => {
-        setConversion(data["usd"]["php"]);
+        return data["usd"]["php"];
+      })
+      .then((conversion) => {
+        fetch("https://fakestoreapi.in/api/products?limit=150")
+          .then((res) => res.json())
+          .then((data) =>
+            setProducts(
+              data.products.map((product) => {
+                return { ...product, price: product.price * conversion };
+              })
+            )
+          );
       });
   }, []);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products?limit=150")
-      .then((res) => res.json())
-      .then((data) =>
-        setProducts(
-          data.products.map((product) => {
-            return { ...product, price: product.price * conversion };
-          })
-        )
-      );
-  }, [conversion]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products/category")

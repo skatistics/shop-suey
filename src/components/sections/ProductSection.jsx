@@ -1,6 +1,8 @@
 import React from "react";
 import ProductList from "../products/ProductList";
-export default function ProductSection({ categories, products }) {
+import { useProductContext } from "../contexts/ProductContextProvider";
+export default function ProductSection() {
+  const { categories, products } = useProductContext();
   return (
     <>
       {categories.map((category) => {
