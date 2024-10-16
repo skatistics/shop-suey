@@ -1,15 +1,27 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
-export const ProductContext = createContext([]);
+import { useContext, createContext, useState, useEffect, useMemo } from "react";
+
+const ProductContext = createContext([]);
+
+export function useProductContext() {
+  const context = useContext(ProductContext);
+  if (context === undefined) {
+    throw new Error(
+      "useProductContext must be used within a useProductContext"
+    );
+  }
+  return context;
+}
 
 export default function ProductContextProvider({ children }) {
-  const [products, setProducts] = useState([]);
-  const [discountedProducts, setDiscountedProducts] = useState([]);
-  const [searchedProducts, setSearchedProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [search, setSearch] = useState("");
-
   const [conversion, setConversion] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const discountedProducts = useMemo(
+    () => products.filter((product) => product.discount != undefined),
+    [products]
+  );
+
   const formatter = new Intl.NumberFormat("tl-PH", {
     style: "currency",
     currency: "PHP",
@@ -47,44 +59,12 @@ export default function ProductContextProvider({ children }) {
       .then((data) => setCategories(data.categories));
   }, []);
 
-  useEffect(() => {
-    if (products.length > 0) {
-      const discounts = products.filter(
-        (product) => product.discount != undefined
-      );
-      setDiscountedProducts(discounts);
-    }
-  }, [products]);
-
-  useEffect(() => {
-    if (search != "") {
-      const filteredProducts = products.filter((product) =>
-        productSearchFunction(product, search)
-      );
-      setSearchedProducts(filteredProducts);
-    } else {
-      setSearchedProducts([]);
-    }
-  }, [search]);
-
-  const productSearchFunction = (product, searchInput) => {
-    //To be improved
-    if (product.title.toLowerCase().includes(searchInput.toLowerCase()))
-      return true;
-    if (product.category.toLowerCase().includes(searchInput.toLowerCase()))
-      return true;
-
-    return false;
-  };
   return (
     <ProductContext.Provider
       value={{
         products,
         discountedProducts,
-        searchedProducts,
         categories,
-        search,
-        setSearch,
         formatPHP,
       }}
     >

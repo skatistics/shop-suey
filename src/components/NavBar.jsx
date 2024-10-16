@@ -1,17 +1,15 @@
-import { Link } from "react-router-dom";
-import { IoCart, IoSearch } from "react-icons/io5";
-import { openLoginSignupModal } from "./modals/LoginSignupModal";
+import { Link, useLocation } from "react-router-dom";
+import { IoCart } from "react-icons/io5";
 import Logo from "../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
-import { toggleCartList } from "./modals/CartListModal";
 import DarkModeToggle from "./DarkModeToggle";
 import SearchResultsModal from "./modals/SearchResultsModal";
-import { CartContext } from "./contexts/CartContextProvider";
-import { useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { openLoginSignupModal } from "./modals/LoginSignupModal";
+import { toggleCartList } from "./modals/CartListModal";
+import { useCartContext } from "./contexts/CartContextProvider";
 
 function NavBar({ setSearch }) {
-  const totalCount = useContext(CartContext).totalCount;
+  const { totalCount } = useCartContext();
   const location = useLocation();
   const pathname = location.pathname;
 

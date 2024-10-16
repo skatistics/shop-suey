@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toggleCartList } from "../modals/CartListModal";
 import { IoCart } from "react-icons/io5";
-import { CartContext } from "../contexts/CartContextProvider";
+import { useCartContext } from "../contexts/CartContextProvider";
 
 function FloatingCartList() {
-  const totalCount = useContext(CartContext).totalCount;
+  const { totalCount } = useCartContext();
   const [floatingCartList, floatCartList] = useState(false);
 
   function scrollHandler() {

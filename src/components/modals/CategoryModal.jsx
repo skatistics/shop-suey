@@ -1,6 +1,5 @@
 import { Modal, openModal, hideModal } from "./CustomModal";
-import { useContext } from "react";
-import { ProductContext } from "../contexts/ProductContextProvider";
+import { useProductContext } from "../contexts/ProductContextProvider";
 import Categories from "../Categories";
 
 export function toggleCategoryModal() {
@@ -19,7 +18,7 @@ export function closeCategoryModal() {
 }
 
 function CategoryModal() {
-  const categories = useContext(ProductContext).categories;
+  const { categories } = useProductContext();
   return (
     <div>
       <Modal

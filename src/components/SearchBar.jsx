@@ -3,11 +3,10 @@ import {
   openSearchResultsModal,
   closeSearchResultsModal,
 } from "./modals/SearchResultsModal";
-import { useContext } from "react";
-import { ProductContext } from "./contexts/ProductContextProvider";
+import { useSearchContext } from "./contexts/SearchContextProvider";
 
 function SearchBar() {
-  const setSearch = useContext(ProductContext).setSearch;
+  const { setSearch } = useSearchContext();
   let timeout = null;
 
   function handleSearch(input) {

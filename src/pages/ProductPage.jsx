@@ -1,21 +1,18 @@
 import { useContext, useEffect, useState } from "react";
-import NotFoundPage from "./NotFoundPage";
-import { useParams } from "react-router-dom";
-import { CartContext } from "../components/contexts/CartContextProvider";
+import { useParams, useNavigate } from "react-router-dom";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
-import { ProductContext } from "../components/contexts/ProductContextProvider";
-import { useNavigate } from "react-router-dom";
 import Ratings from "../components/Ratings";
+import NotFoundPage from "./NotFoundPage";
+import { useCartContext } from "../components/contexts/CartContextProvider";
+import { useProductContext } from "../components/contexts/ProductContextProvider";
 
 function ProductPage() {
-  const addToCart = useContext(CartContext).addToCart;
+  const { formatPHP, products } = useProductContext();
+  const { addToCart, cartList } = useCartContext();
   const [isFetching, setIsFetching] = useState(true);
   const [product, setProduct] = useState({});
   const { productId } = useParams();
-  const formatPHP = useContext(ProductContext).formatPHP;
-  const products = useContext(ProductContext).products;
-  const cartList = useContext(CartContext).cartList;
   const navigate = useNavigate();
 
   useEffect(() => {

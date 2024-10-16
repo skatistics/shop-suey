@@ -1,8 +1,5 @@
 import React from "react";
 import { Modal, openModal, hideModal } from "./CustomModal";
-import { IoClose } from "react-icons/io5";
-import { useContext } from "react";
-import { SystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
 import {
   Billease,
   BPI,

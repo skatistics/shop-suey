@@ -1,9 +1,8 @@
-import { useContext, useEffect } from "react";
 import CartListItem from "../CartListItem";
 import { Modal, openModal, hideModal } from "./CustomModal";
-import { CartContext } from "../contexts/CartContextProvider";
 import { useNavigate } from "react-router-dom";
-import { ProductContext } from "../contexts/ProductContextProvider";
+import { useCartContext } from "../contexts/CartContextProvider";
+import { useProductContext } from "../contexts/ProductContextProvider";
 
 export function toggleCartList() {
   const cartListModal = document.getElementById("cartlist-modal");
@@ -33,10 +32,9 @@ function animateOpen() {
 }
 
 function CartListModal() {
-  const cartList = useContext(CartContext).cartList;
-  const totalAmount = useContext(CartContext).totalAmount;
+  const { cartList, totalAmount } = useCartContext();
+  const { formatPHP } = useProductContext();
   const navigate = useNavigate();
-  const formatPHP = useContext(ProductContext).formatPHP;
 
   return (
     <div>
@@ -52,8 +50,8 @@ function CartListModal() {
               Cart is Empty 😕 Buy something!
             </div>
           )}
-          {cartList.map((item) => {
-            return <CartListItem key={item.id} item={item} />;
+          {cartList.map((item, index) => {
+            return <CartListItem key={item.id} item={item} index={index} />;
           })}
         </div>
         <div className="h-16">
