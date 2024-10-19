@@ -29,7 +29,7 @@ function ProductItem({ product }) {
             e.target.onError = null;
             e.target.src = websiteLogo;
           }}
-          className="size-80 rounded-xl"
+          className="size-80 rounded-xl hover:scale-105 transition-all"
         />
       </div>
       <div className="h-14 py-2">

@@ -6,6 +6,7 @@ import Ratings from "../components/Ratings";
 import NotFoundPage from "./NotFoundPage";
 import { useCartContext } from "../components/contexts/CartContextProvider";
 import { useProductContext } from "../components/contexts/ProductContextProvider";
+import ProductImage from "../components/products/ProductImage";
 
 function ProductPage() {
   const { formatPHP, products } = useProductContext();
@@ -34,12 +35,8 @@ function ProductPage() {
         <CartListModal />
         <FloatingCartList />
         <div className="lg:flex m-5 p-5 space-y-5 lg:space-y-0 lg:space-x-5  rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
-          <div className=" flex items-center">
-            <img
-              src={product.image}
-              alt="Product Image"
-              className="object-contain drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]"
-            />
+          <div className=" flex items-center ">
+            <ProductImage image={product.image} />
           </div>
           <div className="lg:w-2/3 space-y-2">
             <div className="text-3xl font-bold text-ct-191819 dark:text-ct-F2F7F2 space-y-2 mt-2 lg:mt-0">
