@@ -3,10 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
-    screens: {
-      xs: "375px",
-    },
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         "ct-F2F7F2": "#F2F7F2",
         "ct-D9E8D9": "#D9E8D9",
