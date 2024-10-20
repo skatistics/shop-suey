@@ -7,6 +7,7 @@ import NotFoundPage from "./NotFoundPage";
 import { useCartContext } from "../components/contexts/CartContextProvider";
 import { useProductContext } from "../components/contexts/ProductContextProvider";
 import ProductImage from "../components/products/ProductImage";
+import ProductDetails from "../components/products/ProductDetails";
 
 function ProductPage() {
   const { formatPHP, products } = useProductContext();
@@ -38,12 +39,12 @@ function ProductPage() {
           <div className=" flex items-center ">
             <ProductImage image={product.image} />
           </div>
-          <div className="lg:w-2/3 space-y-2">
+          <div className="lg:w-2/3 space-y-4">
             <div className="text-3xl font-bold text-ct-191819 dark:text-ct-F2F7F2 space-y-2 mt-2 lg:mt-0">
               <div>{product.title}</div>
             </div>
 
-            <div className="flex items-center space-x-2 text-ct-080D08 dark:text-ct-D9E8D9">
+            <div className="flex  space-x-2 items-center text-ct-080D08 dark:text-ct-D9E8D9">
               <div className="text-3xl font-medium">
                 {formatPHP(product.price)}
               </div>
@@ -53,7 +54,7 @@ function ProductPage() {
 
             <div>
               <button
-                className="m-2 p-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2 "
+                className="m-2 py-1 px-2 font-bold bg-ct-5D985E text-xl border-2 border-ct-191819 rounded-md text-ct-F2F7F2 "
                 onClick={() => addToCart(product)}
               >
                 Add to Cart
@@ -61,7 +62,7 @@ function ProductPage() {
               <button
                 onClick={() => navigate("/checkout")}
                 className={
-                  "m-2 p-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2 " +
+                  "m-2 py-1 px-2 font-bold bg-ct-5D985E text-xl border-2 border-ct-191819 rounded-md text-ct-F2F7F2 " +
                   (cartList.length > 0 ? " " : " hidden")
                 }
               >
@@ -70,21 +71,7 @@ function ProductPage() {
             </div>
           </div>
         </div>
-
-        <div className="px-5 ">
-          <span className="text-2xl ml-2 p-2 font-medium rounded-tl-lg rounded-tr-lg text-ct-191819 bg-ct-F2F7F2 dark:text-ct-F2F7F2 dark:bg-ct-222824 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
-            Product Details
-          </span>
-          <div className="bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
-            <ul className="list-disc list-inside">
-              <li>Brand: {product.brand}</li>
-              <li>Model: {product.model}</li>
-              <li>Color: {product.color}</li>
-            </ul>
-            <p>{product.description}</p>
-          </div>
-          <div></div>
-        </div>
+        <ProductDetails product={product} />
       </div>
     );
   }
