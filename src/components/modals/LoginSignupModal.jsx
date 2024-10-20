@@ -49,6 +49,7 @@ export default function LoginSignupModal() {
                 className="w-full py-2 px-4 rounded bg-gray-500 text-white mb-5 focus:outline-none"
                 type="password"
                 placeholder="Password"
+                autoComplete="on"
               />
             </div>
           </form>
