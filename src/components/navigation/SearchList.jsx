@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingBag } from "react-icons/fa";
-import { useSystemPreferencesContext } from "./contexts/SystemPreferencesContextProvider";
-import { useSearchContext } from "./contexts/SearchContextProvider";
+import { useSystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
+import { useSearchContext } from "../contexts/SearchContextProvider";
 
 function SearchList(
   { onMouseDown, onMouseMove, onMouseUp, onMouseLeave },

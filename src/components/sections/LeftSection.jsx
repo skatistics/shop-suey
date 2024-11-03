@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "../Categories";
+import Categories from "./Categories";
 import { useProductContext } from "../contexts/ProductContextProvider";
 export default function LeftSection() {
   const { categories } = useProductContext();

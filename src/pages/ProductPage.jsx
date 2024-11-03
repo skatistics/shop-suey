@@ -1,12 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
-import Ratings from "../components/Ratings";
+import ProductRatings from "../components/products/ProductRatings";
 import NotFoundPage from "./NotFoundPage";
 import { useCartContext } from "../components/contexts/CartContextProvider";
 import { useProductContext } from "../components/contexts/ProductContextProvider";
 import ProductImage from "../components/products/ProductImage";
+import ProductDetails from "../components/products/ProductDetails";
 
 function ProductPage() {
   const { formatPHP, products } = useProductContext();
@@ -15,6 +16,19 @@ function ProductPage() {
   const [product, setProduct] = useState({});
   const { productId } = useParams();
   const navigate = useNavigate();
+  const [rating, setRating] = useState(0);
+
+  useEffect(() => {
+    function randomInt(min, max) {
+      const value = Math.random() * (max - min + 1) + min;
+      const result = Math.floor(value * 10) / 10;
+
+      if (result > 5) return 5;
+
+      return result;
+    }
+    setRating(randomInt(1, 5));
+  }, []);
 
   useEffect(() => {
     const id = parseInt(productId);
@@ -35,25 +49,25 @@ function ProductPage() {
         <CartListModal />
         <FloatingCartList />
         <div className="lg:flex m-5 p-5 space-y-5 lg:space-y-0 lg:space-x-5  rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
-          <div className=" flex items-center ">
+          <div className="flex items-center">
             <ProductImage image={product.image} />
           </div>
-          <div className="lg:w-2/3 space-y-2">
+          <div className="lg:w-2/3 space-y-4">
             <div className="text-3xl font-bold text-ct-191819 dark:text-ct-F2F7F2 space-y-2 mt-2 lg:mt-0">
               <div>{product.title}</div>
             </div>
 
-            <div className="flex items-center space-x-2 text-ct-080D08 dark:text-ct-D9E8D9">
+            <div className="flex  space-x-2 items-center text-ct-080D08 dark:text-ct-D9E8D9">
               <div className="text-3xl font-medium">
                 {formatPHP(product.price)}
               </div>
-              <Ratings rating={4.5} starSize={20} />
-              <div className="text-xl">{(2).toFixed(1)}</div>
+              <ProductRatings rating={rating} starSize={20} />
+              <div className="text-xl">{rating.toFixed(1)}</div>
             </div>
 
             <div>
               <button
-                className="m-2 p-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2 "
+                className="m-2 py-1 px-2 font-bold bg-ct-5D985E text-xl border-2 border-ct-191819 rounded-md text-ct-F2F7F2 "
                 onClick={() => addToCart(product)}
               >
                 Add to Cart
@@ -61,7 +75,7 @@ function ProductPage() {
               <button
                 onClick={() => navigate("/checkout")}
                 className={
-                  "m-2 p-1 font-bold bg-ct-5D985E text-xl border-2 border-black rounded-md text-ct-F2F7F2 " +
+                  "m-2 py-1 px-2 font-bold bg-ct-5D985E text-xl border-2 border-ct-191819 rounded-md text-ct-F2F7F2 " +
                   (cartList.length > 0 ? " " : " hidden")
                 }
               >
@@ -70,21 +84,7 @@ function ProductPage() {
             </div>
           </div>
         </div>
-
-        <div className="px-5 ">
-          <span className="text-2xl ml-2 p-2 font-medium rounded-tl-lg rounded-tr-lg text-ct-191819 bg-ct-F2F7F2 dark:text-ct-F2F7F2 dark:bg-ct-222824 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.2)]">
-            Product Details
-          </span>
-          <div className="bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
-            <ul className="list-disc list-inside">
-              <li>Brand: {product.brand}</li>
-              <li>Model: {product.model}</li>
-              <li>Color: {product.color}</li>
-            </ul>
-            <p>{product.description}</p>
-          </div>
-          <div></div>
-        </div>
+        <ProductDetails product={product} />
       </div>
     );
   }

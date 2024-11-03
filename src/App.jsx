@@ -7,7 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import LoginSignupModal from "./components/modals/LoginSignupModal";
 import FloatingDarkModeToggle from "./components/floating/FloatingDarkModeToggle";
 import BackToTopButton from "./components/floating/BackToTopButton";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navigation/NavBar";
 import CheckOutPage from "./pages/CheckOutPage";
 import SystemPreferencesContextProvider from "./components/contexts/SystemPreferencesContextProvider";
 import DarkModeContextProvider from "./components/contexts/DarkModeContextProvider";

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import { Modal, hideModal, openModal } from "./CustomModal";
 import { useSystemPreferencesContext } from "../contexts/SystemPreferencesContextProvider";
-import SearchList from "../SearchList";
+import SearchList from "../navigation/SearchList";
 
 export function openSearchResultsModal() {
   const full = document.getElementById("search-results-modal-full");

@@ -48,7 +48,6 @@ function ProductsMultiCarousel() {
       }
       disabled={loading}
     >
-      <div className="bg-red-300">{temp.length}</div>
       <Carousel
         afterChange={(previousSlide, { currentSlide, onMove }) => {
           if (currentSlide > index - 5) {

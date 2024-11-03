@@ -2,8 +2,8 @@ import { IoSearch } from "react-icons/io5";
 import {
   openSearchResultsModal,
   closeSearchResultsModal,
-} from "./modals/SearchResultsModal";
-import { useSearchContext } from "./contexts/SearchContextProvider";
+} from "../modals/SearchResultsModal";
+import { useSearchContext } from "../contexts/SearchContextProvider";
 
 function SearchBar() {
   const { setSearch } = useSearchContext();

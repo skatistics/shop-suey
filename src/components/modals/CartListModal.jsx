@@ -1,4 +1,4 @@
-import CartListItem from "../CartListItem";
+import CartListItem from "../products/CartListItem";
 import { Modal, openModal, hideModal } from "./CustomModal";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContextProvider";
