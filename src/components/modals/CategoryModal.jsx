@@ -1,6 +1,6 @@
 import { Modal, openModal, hideModal } from "./CustomModal";
 import { useProductContext } from "../contexts/ProductContextProvider";
-import Categories from "../Categories";
+import Categories from "../sections/Categories";
 
 export function toggleCategoryModal() {
   const categoryModal = document.getElementById("category-modal");

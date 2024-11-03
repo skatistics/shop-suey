@@ -1,5 +1,5 @@
 import { FiSun, FiMoon } from "react-icons/fi";
-import { useDarkModeContext } from "./contexts/DarkModeContextProvider";
+import { useDarkModeContext } from "../contexts/DarkModeContextProvider";
 
 function DarkModeToggle() {
   const { dark, themeToggle } = useDarkModeContext();

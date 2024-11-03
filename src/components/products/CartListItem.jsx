@@ -1,8 +1,8 @@
-import Logo from "../assets/logo/logo.png";
+import Logo from "../../assets/logo/logo.png";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useCartContext } from "./contexts/CartContextProvider";
-import { useProductContext } from "./contexts/ProductContextProvider";
+import { useCartContext } from "../contexts/CartContextProvider";
+import { useProductContext } from "../contexts/ProductContextProvider";
 
 function CartListItem({ item, index }) {
   const { removeFromCart, increaseItemCount, decreaseItemCount } =
@@ -42,7 +42,7 @@ function CartListItem({ item, index }) {
           Remove
         </button>
         <div className="flex justify-center items-center pb-4 pr-2 space-x-2 font-medium">
-          {item.count < 2 && (
+          {item.count > 1 && (
             <button
               onClick={() => {
                 decreaseItemCount(item, index);

@@ -39,7 +39,7 @@ function ProductDetails({ product }) {
       </div>
 
       {layer == "details" ? (
-        <div className="bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
+        <div className="space-y-2 bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
           <ul className="list-disc list-inside">
             <li>Brand: {product.brand}</li>
             <li>Model: {product.model}</li>

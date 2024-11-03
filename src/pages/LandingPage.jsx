@@ -1,4 +1,4 @@
-import Footer from "../components/Footer";
+import Footer from "../components/navigation/Footer";
 import FeaturedBanner from "../components/products/FeaturedBanner";
 import CategoryModal from "../components/modals/CategoryModal";
 import LeftSection from "../components/sections/LeftSection";

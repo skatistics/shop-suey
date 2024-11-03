@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CartListModal from "../components/modals/CartListModal";
 import FloatingCartList from "../components/floating/FloatingCartList";
-import Ratings from "../components/Ratings";
+import ProductRatings from "../components/products/ProductRatings";
 import NotFoundPage from "./NotFoundPage";
 import { useCartContext } from "../components/contexts/CartContextProvider";
 import { useProductContext } from "../components/contexts/ProductContextProvider";
@@ -16,6 +16,19 @@ function ProductPage() {
   const [product, setProduct] = useState({});
   const { productId } = useParams();
   const navigate = useNavigate();
+  const [rating, setRating] = useState(0);
+
+  useEffect(() => {
+    function randomInt(min, max) {
+      const value = Math.random() * (max - min + 1) + min;
+      const result = Math.floor(value * 10) / 10;
+
+      if (result > 5) return 5;
+
+      return result;
+    }
+    setRating(randomInt(1, 5));
+  }, []);
 
   useEffect(() => {
     const id = parseInt(productId);
@@ -36,7 +49,7 @@ function ProductPage() {
         <CartListModal />
         <FloatingCartList />
         <div className="lg:flex m-5 p-5 space-y-5 lg:space-y-0 lg:space-x-5  rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
-          <div className=" flex items-center ">
+          <div className="flex items-center">
             <ProductImage image={product.image} />
           </div>
           <div className="lg:w-2/3 space-y-4">
@@ -48,8 +61,8 @@ function ProductPage() {
               <div className="text-3xl font-medium">
                 {formatPHP(product.price)}
               </div>
-              <Ratings rating={4.5} starSize={20} />
-              <div className="text-xl">{(2).toFixed(1)}</div>
+              <ProductRatings rating={rating} starSize={20} />
+              <div className="text-xl">{rating.toFixed(1)}</div>
             </div>
 
             <div>
