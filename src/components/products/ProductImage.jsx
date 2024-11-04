@@ -12,7 +12,7 @@ function ProductImage({ image }) {
       {!isTouch && (
         <FaSearchPlus
           className={
-            "absolute right-5 top-2 size-10 z-[5000]" +
+            "absolute right-5 top-2 size-10 z-[3000]" +
             (enableZoom ? " text-ct-45634F" : " text-ct-0B0D0C")
           }
           onClick={() => setEnableZoom(!enableZoom)}

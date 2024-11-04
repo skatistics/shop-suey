@@ -31,7 +31,7 @@ export function DisabledBGModal({ children, id, className }) {
   return (
     <div
       id={id}
-      className="disabled-bg-modal hidden fixed top-0 left-0 w-full h-full bg-gray-500/70 overflow-hidden"
+      className="disabled-bg-modal hidden fixed top-0 left-0 w-full h-full bg-gray-500/70 overflow-hidden z-[5000]"
     >
       <div
         className={
