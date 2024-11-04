@@ -8,6 +8,7 @@ import { useCartContext } from "../components/contexts/CartContextProvider";
 import { useProductContext } from "../components/contexts/ProductContextProvider";
 import ProductImage from "../components/products/ProductImage";
 import ProductDetails from "../components/products/ProductDetails";
+import RelatedProducts from "../components/products/RelatedProducts";
 
 function ProductPage() {
   const { formatPHP, products } = useProductContext();
@@ -48,7 +49,7 @@ function ProductPage() {
       <div className="sm:container mx-auto">
         <CartListModal />
         <FloatingCartList />
-        <div className="lg:flex m-5 p-5 space-y-5 lg:space-y-0 lg:space-x-5  rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
+        <div className="lg:flex m-5 p-5 space-y-5 lg:space-y-0 lg:space-x-5 rounded-xl bg-ct-F2F7F2 dark:bg-ct-222824">
           <div className="flex items-center">
             <ProductImage image={product.image} />
           </div>
@@ -85,6 +86,7 @@ function ProductPage() {
           </div>
         </div>
         <ProductDetails product={product} />
+        <RelatedProducts products={products} currentProduct={product} />
       </div>
     );
   }

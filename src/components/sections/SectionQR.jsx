@@ -14,7 +14,7 @@ export default function SectionQR() {
       <QRCode
         size={256}
         style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-        value={"THIS IS A PROTOTYPE"}
+        value={"https://github.com/skatistics/shop-suey"}
         viewBox={`0 0 256 256`}
       />
     </div>
