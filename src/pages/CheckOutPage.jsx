@@ -28,24 +28,19 @@ function CheckOutPage() {
       md: "768px",
       lg: "1024px",
       xl: "1280px", */}
-      <div className="w-full bg-orange-200 ">
-        <div className="flex justify-center h-32 bg-yellow-50 m-1">
-          <h1 className="  font-bold text-xl sm:text-2xl md:text-3xl lg:5xl xl:6xl pt-10 ">
-            CheckOutPage
-          </h1>
-        </div>
-        <div className="flex">
-          <div className="w-2/3">
-            <div className=" h-16 border-2 font-bold text-xs sm:text-sm md:text-md lg:text-lg border-black bg-blue-300 m-1">
+      <div className="w-full text-ct-0B0D0C dark:text-ct-F2F7F2 dark:bg-ct-45634F bg-ct-F2F7F p-4">
+        <div className="block sm:flex">
+          <div className="w-full sm:w-2/3">
+            <div className=" h-16 font-bold text-xs sm:text-sm md:text-md lg:text-lg bg-ct-F2F7F2 dark:bg-ct-222824  rounded-xl my-1 mr-1 p-2">
               Billing and Shopping Address:
             </div>
 
-            <div className="bg-slate-500 m-1 border-1 font-bold text-xs sm:text-sm md:text-md lg:text-lg border-black">
+            <div className="rounded-xl font-bold text-xs sm:text-sm md:text-md lg:text-lg bg-ct-F2F7F2 dark:bg-ct-222824 mr-1 p-2">
               Payment Method:
-              <div className="h-16 w-auto m-3 border-2 border-black">
+              <div className="min-h-20 w-auto border-2 rounded-xl border-slate-500 m-3 p-2">
                 <input type="radio" name="paymentMethod" /> Cash on Delivery 🛒
               </div>
-              <div className="h-20 w-auto border-2 border-black m-3">
+              <div className="min-h-20 w-auto border-2 rounded-xl border-slate-500 m-3 p-2">
                 <input type="radio" name="paymentMethod" /> Dragon Payment 🔥
                 <div className="flex flex-wrap justify-center items-center">
                   <img
@@ -105,7 +100,7 @@ function CheckOutPage() {
                   />
                 </div>
               </div>
-              <div className="h-20 w-auto border-2 border-black m-3">
+              <div className="min-h-20 w-auto border-2 rounded-xl border-slate-500 m-3 p-2">
                 <input type="radio" name="paymentMethod" /> Credit or Debit Card
                 💳
                 <div className="flex flex-wrap justify-center items-center">
@@ -126,19 +121,19 @@ function CheckOutPage() {
                   />
                 </div>
               </div>
-              <div className="h-60 border-2 border-black text-xs sm:text-sm md:text-md lg:text-lg m-2">
-                Notes:
-                <input
-                  type="text"
-                  name=""
+            </div>
+            <div className="rounded-xl font-bold text-xs sm:text-sm md:text-md lg:text-lg bg-ct-F2F7F2 dark:bg-ct-222824 mr-1 p-2 h-60 mt-1">
+              <div className="h-full">
+                <textarea
+                  placeholder="Notes:"
+                  className="w-full h-full bg-ct-F2F7F2 dark:bg-ct-222824 resize-none"
                   id=""
-                  className="bg-slate-500 border-b-2 border-black"
-                />
+                ></textarea>
               </div>
             </div>
           </div>
-          <div className="w-1/3 h-auto mb-2 mt-1 mr-1 bg-slate-500 border-2 border-black relative -z-0">
-            <div className="border-b-2 border-black m-3 text-xs sm:text-sm md:text-md lg:text-lg">
+          <div className="w-full sm:w-1/3 h-auto mt-1 bg-ct-F2F7F2 dark:bg-ct-222824  relative -z-0 rounded-xl p-2">
+            <div className="m-3 text-xs sm:text-sm md:text-md lg:text-lg">
               <div className="justify-between m-2 font-semibold sm:flex">
                 <div>Cart total: </div>
                 <div className="text-end">{formatPHP(totalAmount)}</div>
@@ -147,7 +142,7 @@ function CheckOutPage() {
                 <div> Shipping Fee:</div>
                 <div className="text-end"> ₱40.00</div>
               </div>
-              <div className="justify-between border-t-2 border-black m-2 font-bold pt-2 sm:flex">
+              <div className="justify-between border-y-2 py-2 border-black m-2 font-bold sm:flex">
                 <div>Total Price:</div>
                 <div className="text-end">{formatPHP(totalPrice)}</div>
               </div>
@@ -163,7 +158,7 @@ function CheckOutPage() {
                 Proceed
               </button>
             </div>
-            <div className="h-96 overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit">
+            <div className="h-[480px] overflow-hidden hover:overflow-y-auto hover:scrollbar-thin hover:scrollbar-webkit">
               {!cartList.length > 0 && (
                 <div className="text-ct-191819 font-medium text-center pt-8 text-sm sm:text-md md:text-lg">
                   Cart is Empty 😕 Buy something!
