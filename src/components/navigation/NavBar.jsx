@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { IoCart } from "react-icons/io5";
+import { FiUser } from "react-icons/fi";
 import Logo from "../../assets/logo/logo.png";
 import SearchBar from "./SearchBar";
 import DarkModeToggle from "./DarkModeToggle";
@@ -33,22 +34,27 @@ function NavBar({ setSearch }) {
         )}
         {/* Cart, Login/Signup*/}
         <div className="flex justify-between items-center ">
+          {/* DarkMode */}
+          <DarkModeToggle />
+          <button onClick={() => openLoginSignupModal()} className="ml-2">
+            <div className="hover:underline text-ct-191819 dark:text-ct-F2F7F2">
+              <div className="hidden lg:block">Login | Signup</div>
+              <div className="lg:hidden">
+                <FiUser className="size-[30px] text-ct-191819 dark:text-ct-5D985E" />
+              </div>
+            </div>
+          </button>
           {(pathname == "/" || pathname.includes("/products/")) && (
-            <button onClick={() => toggleCartList()} className="relative">
+            <button
+              onClick={() => toggleCartList()}
+              className="relative ml-2 mr-4"
+            >
               <IoCart className="size-[30px] text-ct-191819 dark:text-ct-5D985E" />
               <div className="text-center z-10 bg-ct-base-67A770 rounded-full -top-1 text-sm -right-2 size-5 absolute">
                 {totalCount}
               </div>
             </button>
           )}
-          <button onClick={() => openLoginSignupModal()} className="ml-4">
-            <div className="hover:underline text-ct-191819 dark:text-ct-F2F7F2">
-              <div>Login/</div>
-              <div>Signup</div>
-            </div>
-          </button>
-          {/* DarkMode */}
-          <DarkModeToggle />
         </div>
       </div>
     </div>
