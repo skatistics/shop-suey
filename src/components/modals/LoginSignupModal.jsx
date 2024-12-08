@@ -123,7 +123,7 @@ export default function LoginSignupModal() {
                 <FaFacebook className="size-[40px] text-[#1877F2] mr-6 hover:border-2 rounded-full" />
               </a>
               <a href="#">
-                <FcGoogle className="size-[40px] text-[#DB4437] hover:border-2 rounded-full" />
+                <FcGoogle className="size-[40px] hover:border-2 rounded-full" />
               </a>
             </div>
           </div>
