@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ProductDetails({ product }) {
   const [layer, setLayer] = useState("details");
@@ -38,18 +38,21 @@ function ProductDetails({ product }) {
         </button>
       </div>
 
-      {layer == "details" ? (
-        <div className="space-y-2 bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
-          <ul className="list-disc list-inside">
-            <li>Brand: {product.brand}</li>
-            <li>Model: {product.model}</li>
-            <li>Color: {product.color}</li>
-          </ul>
-          <p>{product.description}</p>{" "}
-        </div>
-      ) : (
-        <div> </div>
-      )}
+      <div className="space-y-2 bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
+        {layer == "details" ? (
+          <div className="py-5">
+            <ul className="list-disc list-inside">
+              <li>Brand: {product.brand}</li>
+              <li>Model: {product.model}</li>
+              <li>Color: {product.color}</li>
+            </ul>
+            <br />
+            <p>{product.description}</p>
+          </div>
+        ) : (
+          <div className="h-20">This product has no reviews.</div>
+        )}
+      </div>
     </div>
   );
 }
