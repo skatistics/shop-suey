@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -24,6 +25,7 @@ function App() {
             <CartContextProvider>
               <SearchContextProvider>
                 <div className="min-h-dvh w-full  bg-ct-D9E8D9 transition-all duration-300 dark:bg-ct-0B0D0C">
+                  <ScrollToTop />
                   <NavBar />
                   <LoginSignupModal />
                   <BackToTopButton />
