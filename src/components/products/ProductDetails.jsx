@@ -38,7 +38,7 @@ function ProductDetails({ product }) {
         </button>
       </div>
 
-      <div className="space-y-2 bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm">
+      <div className="space-y-2 bg-ct-F2F7F2 dark:bg-ct-222824 text-ct-191819 dark:text-ct-F2F7F2 p-4 rounded-tl-sm rounded-tr-sm min-h-[150px]">
         {layer == "details" ? (
           <div className="py-5">
             <ul className="list-disc list-inside">
@@ -50,7 +50,7 @@ function ProductDetails({ product }) {
             <p>{product.description}</p>
           </div>
         ) : (
-          <div className="h-20">This product has no reviews.</div>
+          <div className="min-h-[150px]">This product has no reviews.</div>
         )}
       </div>
     </div>
